@@ -77,7 +77,7 @@ const AboutMenu = ({ classes }) => {
             <NavLink
               className={classes.link}
               activeStyle={{ color: 'white' }}
-              to="/steeringCommittee"
+              to="/steering-committee"
             >
                Steering Committee
             </NavLink>

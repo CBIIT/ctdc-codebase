@@ -34,20 +34,17 @@ const disableLimitsOnWheel = true;
 const ModelPage = ({ classes }) => {
   const [data, setData] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      let resultData = [];
-      try {
-        const result = await axios.get(ABOUT_CONTENT_URL);
-        resultData = yaml.safeLoad(result.data);
-      } catch (error) {
-        const result = await axios(YAMLData);
-        resultData = yaml.safeLoad(result.data);
-      }
-      const supportObj = resultData.find(({ page }) => page === '/ctdc-data-model');
-      setData(supportObj);
-    };
-    fetchData();
+  useEffect(async () => {
+    let resultData = [];
+    try {
+      const result = await axios.get(ABOUT_CONTENT_URL);
+      resultData = yaml.safeLoad(result.data);
+    } catch (error) {
+      const result = await axios(YAMLData);
+      resultData = yaml.safeLoad(result.data);
+    }
+    const supportObj = resultData.find(({ page }) => page === '/ctdc-data-model');
+    setData(supportObj);
   }, []);
   return (
     <>

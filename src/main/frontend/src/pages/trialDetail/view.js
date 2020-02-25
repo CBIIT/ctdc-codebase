@@ -35,7 +35,7 @@ const TrialView = ({ classes, data, theme }) => {
       && state.dashboard.caseOverview
        && state.dashboard.caseOverview.data
       ? (
-        function extraData(d) {
+        function (d) {
           return {
             diagnosis: getDonutDataFromDashboardData(d, 'disease'),
             file: getStatDataFromDashboardData(d, 'file'),
