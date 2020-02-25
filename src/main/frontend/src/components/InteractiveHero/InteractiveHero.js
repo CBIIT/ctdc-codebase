@@ -23,6 +23,15 @@ const InteractiveHero = ({ classes }) => {
       <div className={classes.casesIcon} onMouseEnter={() => { setActiveState({ isActive: 'cases', transformedHorseShoe: FacingUp }); }}>
         <CircularIcon isActive={activeState.isActive === 'cases'} InactiveImage={InActiveCases} activeImage={ActiveCases} />
       </div>
+      <div className={classes.casesText}>
+        <svg viewBox="0 0 1000 1000">
+          <path stroke="green" strokeWidth="18" fill="none" d="M100 500 l 300 0  l 100 200 " />
+          <circle id="pointA" strokeWidth="18" stroke="green" cx="400" cy="300" r="30" />
+          <text x="350" y="200" fontSize="30px" fontFamily="sans-serif" fill="black" stroke="none" textAnchor="middle">Cases 10</text>
+        </svg>
+        {/* <text x="100" y="350" dx="-30">Cases 10</text> */}
+        <text x="100" y="300" dx="-30">Hello</text>
+      </div>
       <HorseShoe transformedHorseShoe={activeState.transformedHorseShoe} />
 
       <div className={classes.trialsIcon} onMouseEnter={() => { setActiveState({ isActive: 'trails', transformedHorseShoe: FacingRight }); }}>
@@ -52,6 +61,13 @@ const styles = () => ({
     marginTop: '50px',
     width: '100px',
     left: '40px',
+  },
+  casesText: {
+    position: 'absolute',
+    // float: 'left',
+    marginTop: '50px',
+    // width: '100px',
+    left: '160px',
   },
   trialsIcon: {
     left: '220px',
