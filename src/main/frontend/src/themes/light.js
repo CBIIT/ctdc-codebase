@@ -43,6 +43,16 @@ export default {
         .toHexString(),
       contrastText: '#0E273A',
     },
+    secondary: {
+      main: deepSkyBlue,
+      light: tinycolor(deepSkyBlue)
+        .lighten(lightenRate)
+        .toHexString(),
+      dark: tinycolor(deepSkyBlue)
+        .darken(darkenRate)
+        .toHexString(),
+      contrastText: '#0E273A',
+    },
     curiousBlue: {
       main: curiousBlue,
       light: tinycolor(curiousBlue)

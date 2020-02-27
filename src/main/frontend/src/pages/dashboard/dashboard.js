@@ -211,6 +211,8 @@ const styles = (theme) => ({
   content: {
     // padding: theme.spacing.unit * 3,
     display: 'flex',
+    maxWidth: '1800px',
+    margin: 'auto',
   },
   widgetsContainer: {
     background: theme.palette.widgetBackground.main,
@@ -272,7 +274,6 @@ const styles = (theme) => ({
   },
   sideBar: {
     maxWidth: '240px',
-    wordBreak: 'break-all',
   },
   statsBar: {
     position: 'fixed',

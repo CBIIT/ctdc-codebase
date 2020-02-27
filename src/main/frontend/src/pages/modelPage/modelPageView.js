@@ -8,7 +8,7 @@ import yaml from 'js-yaml';
 import axios from 'axios';
 import YAMLData from '../../content/prod/aboutPagesContent.yaml';
 import stockImg from '../../assets/about/About_CTDC_Model.png';
-import AboutBody from '../../components/About/AbouBodyView';
+import AboutBody from '../about/aboutBodyView';
 import CenterIcon from '../../assets/about/Model-Buttons-Center.svg';
 import ZoomInIcon from '../../assets/about/Model-Buttons-ZoomIn.svg';
 import ZoomOutIcon from '../../assets/about/Model-Buttons-ZoomOut.svg';
@@ -34,17 +34,20 @@ const disableLimitsOnWheel = true;
 const ModelPage = ({ classes }) => {
   const [data, setData] = useState([]);
 
-  useEffect(async () => {
-    let resultData = [];
-    try {
-      const result = await axios.get(ABOUT_CONTENT_URL);
-      resultData = yaml.safeLoad(result.data);
-    } catch (error) {
-      const result = await axios(YAMLData);
-      resultData = yaml.safeLoad(result.data);
-    }
-    const supportObj = resultData.find(({ page }) => page === '/ctdc-data-model');
-    setData(supportObj);
+  useEffect(() => {
+    const fetchData = async () => {
+      let resultData = [];
+      try {
+        const result = await axios.get(ABOUT_CONTENT_URL);
+        resultData = yaml.safeLoad(result.data);
+      } catch (error) {
+        const result = await axios(YAMLData);
+        resultData = yaml.safeLoad(result.data);
+      }
+      const supportObj = resultData.find(({ page }) => page === '/ctdc-data-model');
+      setData(supportObj);
+    };
+    fetchData();
   }, []);
   return (
     <>

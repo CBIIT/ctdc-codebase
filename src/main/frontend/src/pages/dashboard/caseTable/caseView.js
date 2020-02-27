@@ -6,6 +6,7 @@ import {
 } from '@material-ui/core';
 import { useSelector, useDispatch } from 'react-redux';
 import MUIDataTable from 'mui-datatables';
+import Snackbar from '@material-ui/core/Snackbar';
 import { Link } from 'react-router-dom';
 import CustomFooter from './customFooter';
 import { toggleCheckBox } from '../dashboardState';
@@ -23,6 +24,16 @@ import { fetchCasesAndFiles } from '../../selectedCases/selectedCasesState';
 
 
 const Cases = ({ classes, data }) => {
+  const [snackbarState, setsnackbarState] = React.useState({
+    open: false,
+    value: 0,
+  });
+  function openSnack(value1) {
+    setsnackbarState({ open: true, value: value1 });
+  }
+  function closeSnack() {
+    setsnackbarState({ open: false });
+  }
   const dispatch = useDispatch();
   // data from store
   const chipData = useSelector((state) => (
@@ -30,6 +41,8 @@ const Cases = ({ classes, data }) => {
     && state.dashboard.datatable.filters
       ? state.dashboard.datatable.filters : []));
 
+  // Get the existing caseIds from MyCases cart state
+  const caseIds = useSelector((state) => state.cart.cases);
 
   // The bubble below will shows in the dashboard and work as
   // When user select and filters
@@ -189,14 +202,18 @@ const Cases = ({ classes, data }) => {
     },
   ];
 
-
   let selectedCaseIds = [];
 
   function exportCases() {
+    // Find the newly added cases by comparing
+    // existing caseIds and selectedCaseIds
+    const uniqueCases = selectedCaseIds.filter((e) => !caseIds.find((a) => e === a.case_id)).length;
+    if (uniqueCases > 0) {
+      openSnack(uniqueCases);
+    }
     dispatch(fetchCasesAndFiles(selectedCaseIds));
     selectedCaseIds = [];
   }
-
 
   function onRowsSelect(curr, allRowsSelected) {
     // Change button status based on selection status
@@ -250,6 +267,19 @@ const Cases = ({ classes, data }) => {
 
   return (
     <>
+      <Snackbar
+        open={snackbarState.open}
+        onClose={closeSnack}
+        autoHideDuration={3000}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+        message={(
+          <span>
+            {snackbarState.value}
+            {' '}
+Case(s) successfully added to the My Cases list
+          </span>
+)}
+      />
       <div id="table_cases">
         <div className={classes.chips}>
           {bubbles}
