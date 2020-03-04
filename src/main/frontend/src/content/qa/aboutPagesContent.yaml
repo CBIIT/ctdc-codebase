@@ -1,7 +1,7 @@
 - page: '/steeringCommittee'
   title: "John Draft for About"
   content:
-    - paragraph: "The Clinical Trials Data Commons (CTDC) is a node in the NCI's Cancer Research Data Commons (CRDC) that contains clinical trials data from NCI's precision medicine inititative. The CTDC enables users to identify single cases or groups/cohorts of cases of interest using either a Graphical User Interface (GUI- this web application) or via APIs (REST or GraphQL). The associated data files can then be analyzed using the CRDC's Cloud Resources. Access to the data has tierred permissions. All users can view public data but data files and certain clinical data is only available to thos with appropriate permissions." 
+    - paragraph: "The Clinical Trials Data Commons (CTDC) THIS IS A TEST is a node in the NCI's Cancer Research Data Commons (CRDC) that contains clinical trials data from NCI's precision medicine inititative. The CTDC enables users to identify single cases or groups/cohorts of cases of interest using either a Graphical User Interface (GUI- this web application) or via APIs (REST or GraphQL). The associated data files can then be analyzed using the CRDC's Cloud Resources. Access to the data has tierred permissions. All users can view public data but data files and certain clinical data is only available to thos with appropriate permissions." 
     - paragraph: "The Steering Committee has two sub-committees; Data Governance Advisory Board (DGAB) 
         and the Best Practices Sub-Committee (BPSC)."
 - page: '/crdc'
