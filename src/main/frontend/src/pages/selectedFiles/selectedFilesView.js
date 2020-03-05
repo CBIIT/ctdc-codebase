@@ -26,6 +26,12 @@ class selectedFilesView extends Component {
     this.downloadButton.current.style.color = 'rgb(0, 0, 0,0.26)';
   }
 
+  static getDerivedStateFromProps(nextProps) {
+    return {
+      data: nextProps.data,
+    };
+  }
+
 
   onRowsSelect(curr, allRowsSelected) {
     // Change button status based on selection status

@@ -3,6 +3,7 @@ import {
   Grid,
   withStyles,
 } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 import MUIDataTable from 'mui-datatables';
 import TableFooter from '@material-ui/core/TableFooter';
 import TableRow from '@material-ui/core/TableRow';
@@ -257,7 +258,8 @@ Case :
                       </Grid>
                       <Grid item xs={6} className={classes.content}>
                         {caseDetail.clinical_trial_code
-                          ? caseDetail.clinical_trial_code : notProvided}
+                          ? <Link to={`/trial/${caseDetail.clinical_trial_code}`} className={classes.link}>{caseDetail.clinical_trial_code}</Link>
+                          : notProvided}
                       </Grid>
                     </Grid>
                   </Grid>
@@ -507,6 +509,22 @@ const styles = (theme) => ({
     letterSpacing: '0.017em',
     color: '#ff17f15',
     paddingBottom: '20px',
+  },
+  breadCrumb: {
+    paddingTop: '5px',
+  },
+  paddingTop: {
+    paddingTop: '36px',
+  },
+  link: {
+    color: '#DD401C',
+    textDecoration: 'none',
+    '&:hover': {
+      textDecoration: 'underline',
+    },
+    '&:visited': {
+      color: '#9F3D26',
+    },
   },
 });
 
