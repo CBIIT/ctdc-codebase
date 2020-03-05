@@ -12,8 +12,8 @@ const HorseShoe = ({ classes, transformedHorseShoe }) => (
 const styles = () => ({
   radialWrapper: {
     position: 'absolute',
-    width: '200px',
-    height: '200px',
+    width: '250px',
+    height: '250px',
     marginTop: '180px',
   },
 }

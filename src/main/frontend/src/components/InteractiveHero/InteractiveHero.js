@@ -1,5 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core';
+import classnames from 'classnames';
 import HorseShoe from './HorseShoe';
 import ActiveCases from '../../assets/landing/animation/activeCases.svg';
 import InActiveCases from '../../assets/landing/animation/InActiveCases.svg';
@@ -17,49 +18,63 @@ const InteractiveHero = ({ classes, statsData }) => {
     isActive: 'cases',
     transformedHorseShoe: FacingUp,
   });
-  console.log(statsData);
   return (
     <div className={classes.animationWrapper}>
       <div className={classes.casesIcon} onMouseEnter={() => { setActiveState({ isActive: 'cases', transformedHorseShoe: FacingUp }); }}>
         <CircularIcon isActive={activeState.isActive === 'cases'} InactiveImage={InActiveCases} activeImage={ActiveCases} />
       </div>
-      <div className={classes.casesText}>
-        <svg height="100" width="150">
-          <path stroke="green" strokeWidth="2" fill="none" d="M0 50 l 30 0" />
-          {/* <circle id="pointA" strokeWidth="18" stroke="green" cx="400" cy="300" r="30" />
-          <text x="350" y="200" fontSize="30px" fontFamily="sans-serif" fill="black" stroke="none"
-           textAnchor="middle">Cases 10</text> */}
-        </svg>
-        {/* <svg viewBox="0 0 1000 1000">
-          <path stroke="green" strokeWidth="18" fill="none" d="M100 500 l 300 0  l 100 200 " />
-          <circle id="pointA" strokeWidth="18" stroke="green" cx="400" cy="300" r="30" />
-          <text x="350" y="200" fontSize="30px" fontFamily="sans-serif" fill="black"
-          stroke="none" textAnchor="middle">Cases 10</text>
-        </svg> */}
-        {/* <text x="100" y="350" dx="-30">Cases 10</text> */}
-        <text x="100" y="300" dx="-30">
-          {' '}
-Case
+      <div className={classnames({
+        [classes.hide]: activeState.isActive !== 'cases',
+      })}
+      >
+        <div className={classes.casesSVG}>
+          <svg height="100" width="100">
+            <path stroke="white" strokeWidth="1" fill="none" d="M0 50 l 30 -30  l 95 0 " />
+            <circle id="pointA" strokeWidth="1" stroke="white" cx="97" cy="20" r="2" />
+          </svg>
+        </div>
+        <div className={classes.casesText}>
+Cases
           {statsData.numberOfCases}
-        </text>
+        </div>
       </div>
       <HorseShoe transformedHorseShoe={activeState.transformedHorseShoe} />
 
       <div className={classes.trialsIcon} onMouseEnter={() => { setActiveState({ isActive: 'trails', transformedHorseShoe: FacingRight }); }}>
         <CircularIcon isActive={activeState.isActive === 'trails'} InactiveImage={InActiveTrials} activeImage={ActiveTrials} />
-        <text x="100" y="300" dx="-30">
-          {' '}
-Trials
+      </div>
+      <div className={classnames({
+        [classes.hide]: activeState.isActive !== 'trails',
+      })}
+      >
+        <div className={classes.trialsSVG}>
+          <svg height="100" width="100">
+            <path stroke="white" strokeWidth="1" fill="none" d="M0 0 l 25 25  l 50 0 " />
+            <circle id="pointA" strokeWidth="1" stroke="white" cx="75" cy="25" r="2" />
+          </svg>
+        </div>
+        <div className={classes.trialsText}>
+      Trials
           {statsData.numberOfTrials}
-        </text>
+        </div>
       </div>
       <div className={classes.filesIcon} onMouseEnter={() => { setActiveState({ isActive: 'files', transformedHorseShoe: FacingDown }); }}>
         <CircularIcon isActive={activeState.isActive === 'files'} InactiveImage={InActiveFiles} activeImage={ActiveFiles} />
-        <text x="100" y="300" dx="-30">
-          {' '}
-Files
+      </div>
+      <div className={classnames({
+        [classes.hide]: activeState.isActive !== 'files',
+      })}
+      >
+        <div className={classes.filesSVG}>
+          <svg height="100" width="100">
+            <path stroke="white" strokeWidth="1" fill="none" d="M0 50 l 30 -30  l 95 0 " />
+            <circle id="pointA" strokeWidth="1" stroke="white" cx="97" cy="20" r="2" />
+          </svg>
+        </div>
+        <div className={classes.filesText}>
+      Files
           {statsData.numberOfFiles}
-        </text>
+        </div>
       </div>
     </div>
   );
@@ -70,7 +85,7 @@ const styles = () => ({
     left: '0px',
     position: 'absolute',
     '@media (min-width: 800px)': {
-      left: 'calc(60%)',
+      left: 'calc(50%)',
     },
     '@media (min-width: 1100px)': {
       left: 'calc(70%)',
@@ -79,29 +94,90 @@ const styles = () => ({
   casesIcon: {
     position: 'absolute',
     float: 'left',
-    marginTop: '50px',
+    marginTop: '35px',
     width: '100px',
-    left: '40px',
+    left: '60px',
+  },
+  casesSVG: {
+    position: 'absolute',
+    float: 'left',
+    marginTop: '15px',
+    // width: '100px',
+    left: '180px',
+    color: '#FFFFFF',
+    fontFamily: 'Oswald',
+    fontSize: 22,
+    fontWeight: 500,
   },
   casesText: {
     position: 'absolute',
-    // float: 'left',
-    marginTop: '50px',
+    float: 'left',
+    marginTop: '55px',
     // width: '100px',
-    left: '140px',
+    left: '250px',
+    color: '#FFFFFF',
+    fontFamily: 'Oswald',
+    fontSize: 22,
+    fontWeight: 500,
   },
   trialsIcon: {
-    left: '220px',
+    left: '300px',
     position: 'absolute',
     float: 'left',
-    marginTop: '220px',
-    width: '100px',
+    marginTop: '235px',
+  },
+  trialsSVG: {
+    position: 'absolute',
+    float: 'left',
+    marginTop: '364px',
+    // width: '100px',
+    left: '370px',
+    color: '#FFFFFF',
+    fontFamily: 'Oswald',
+    fontSize: 22,
+    fontWeight: 500,
+  },
+  trialsText: {
+    position: 'absolute',
+    float: 'left',
+    marginTop: '400px',
+    // width: '100px',
+    left: '400px',
+    color: '#FFFFFF',
+    fontFamily: 'Oswald',
+    fontSize: 22,
+    fontWeight: 500,
   },
   filesIcon: {
-    marginTop: '400px',
+    marginTop: '450px',
     position: 'absolute',
     float: 'left',
-    left: '40px',
+    left: '60px',
+  },
+  filesSVG: {
+    position: 'absolute',
+    float: 'left',
+    marginTop: '430px',
+    // width: '100px',
+    left: '180px',
+    color: '#FFFFFF',
+    fontFamily: 'Oswald',
+    fontSize: 22,
+    fontWeight: 500,
+  },
+  filesText: {
+    position: 'absolute',
+    float: 'left',
+    marginTop: '430px',
+    // width: '100px',
+    left: '300px',
+    color: '#FFFFFF',
+    fontFamily: 'Oswald',
+    fontSize: 22,
+    fontWeight: 500,
+  },
+  hide: {
+    display: 'none',
   },
 });
 
