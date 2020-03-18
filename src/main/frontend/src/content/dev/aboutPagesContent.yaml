@@ -64,7 +64,7 @@
 - page: '/request-access'
   title: "Request Access"
   content:
-    - paragraph: "CTDC provides open access to baseline information on the cases present in CTDC. However, the detailed clinical information and associated sequencing data files for cases presented in the CTDC are not open access, they require users to have permission. Requesting permission is a two step process;."
+    - paragraph: "CTDC provides open access to baseline information on the cases present in CTDC. However, the detailed clinical information and associated sequencing data files for cases presented in the CTDC are not open access, they require users to have permission. Requesting permission is a two step process;"
     - paragraph: "STEP 1: Request access through the NCTN Data Archive site."
     - paragraph: "STEP 2: Request access through dbGaP."
     - paragraph: "Once access has been granted, users will be able to view and work with the CTDC data files and clinical information in one of the Cancer Research Data Common’s analysis resources. Currently the CTDC supports analysis via the SBG Cloud Resource ($$[Seven Bridges Cancer Genomics Cloud](http://www.cancergenomicscloud.org/)$$)."
