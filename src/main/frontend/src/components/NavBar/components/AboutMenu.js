@@ -64,8 +64,8 @@ const AboutMenu = ({ classes }) => {
           },
         }}
       >
-        <Paper className={classes.paper}>
-          <div className={classes.aboutItemsWrapper} onMouseLeave={handleClose}>
+        <Paper className={classes.paper} onMouseLeave={handleClose}>
+          <div className={classes.aboutItemsWrapper}>
             <NavLink
               className={classes.link}
               activeStyle={{ color: 'white' }}
