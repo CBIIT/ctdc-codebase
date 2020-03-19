@@ -22,7 +22,7 @@ const AboutBody = ({ classes, data }) => {
       <div id="about_body" className={classes.container}>
         <Grid container spacing={16} direction="row" className={classes.aboutSection}>
           <Grid item lg={3} md={3} sm={12} xs={12} className={classes.leftSection}>
-            <img className={classes.img} src={data.img} alt="about" />
+            <img className={classes.img} src={data.img} alt={data.title} />
           </Grid>
           <Grid item lg={9} md={9} sm={12} xs={12} className={classes.rightSection}>
             {data.content ? data.content.map((contentObj) => (
