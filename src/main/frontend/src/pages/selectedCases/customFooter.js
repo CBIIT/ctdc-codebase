@@ -8,17 +8,23 @@ import { Link } from 'react-router-dom';
 
 import { withStyles } from '@material-ui/core/styles';
 
-const defaultFooterStyles = {
-  background: '#DE5227',
-  borderRadius: '35px',
-  fontSize: '15px',
-  padding: '10px 40px 10px 40px',
-  maxHeight: '42px',
-  color: '#FFFF',
-};
+const styles = () => ({
+  buttonRoot: {
+    background: '#DE5227',
+    '&:hover': {
+      background: '#DE5227',
+    },
+    borderRadius: '35px',
+    fontSize: '15px',
+    padding: '10px 40px 10px 40px',
+    maxHeight: '42px',
+    color: '#FFFF',
+  },
+});
 
 const linkStyle = {
   textDecoration: 'none',
+  cursor: 'auto',
 };
 
 const CustomFooter = ({
@@ -33,8 +39,8 @@ const CustomFooter = ({
   <TableFooter>
     <TableRow>
       <TableCell>
-        <Link to="mycasesfiles" style={linkStyle}>
-          <Button variant="contained" color="primary" style={defaultFooterStyles}>
+        <Link to={count > 0 && 'mycasesfiles'} style={linkStyle}>
+          <Button disabled={count < 1} variant="contained" color="primary" classes={{ root: classes.buttonRoot }}>
             {text}
           </Button>
         </Link>
@@ -51,4 +57,4 @@ const CustomFooter = ({
   </TableFooter>
 );
 
-export default withStyles(defaultFooterStyles, { withTheme: true })(CustomFooter);
+export default withStyles(styles)(CustomFooter);

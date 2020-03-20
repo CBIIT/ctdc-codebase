@@ -44,6 +44,7 @@ class selectedFilesView extends Component {
       this.downloadButton.current.disabled = false;
       this.downloadButton.current.style.color = '#FFFFFF';
       this.downloadButton.current.style.backgroundColor = '#DE5227';
+      this.downloadButton.current.style.cursor = 'pointer';
     }
   }
 
