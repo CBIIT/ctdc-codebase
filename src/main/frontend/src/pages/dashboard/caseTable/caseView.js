@@ -225,10 +225,12 @@ const Cases = ({ classes, data }) => {
       saveButton.current.disabled = true;
       saveButton.current.style.color = '#FFFFFF';
       saveButton.current.style.backgroundColor = 'rgba(0, 0, 0, 0.12)';
+      saveButton.current.style.cursor = 'auto';
     } else {
       saveButton.current.disabled = false;
       saveButton.current.style.color = '#FFFFFF';
       saveButton.current.style.backgroundColor = '#DF5226';
+      saveButton.current.style.cursor = 'pointer';
     }
   }
 
