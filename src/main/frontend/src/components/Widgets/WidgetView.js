@@ -27,7 +27,7 @@ const Widget = ({
           props.header
         ) : (
           <>
-            <Typography className={titleClass} size="md" weight="bold" family="Raleway" color={color}>
+            <Typography className={titleClass} size="md" weight="bold" family="Lato" color={color}>
               {title}
             </Typography>
           </>
