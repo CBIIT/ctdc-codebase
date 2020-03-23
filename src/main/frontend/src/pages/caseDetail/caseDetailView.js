@@ -396,7 +396,7 @@ const styles = (theme) => ({
   headerMainTitle: {
     fontFamily: 'Lato',
     color: '#931D1D',
-    fontSize: '20pt',
+    fontSize: '18pt',
     lineHeight: '24px',
     paddingLeft: '0px',
     fontWeight: '300',
@@ -439,7 +439,7 @@ const styles = (theme) => ({
     float: 'left',
     marginTop: '-6px',
     width: '82px',
-    filter: 'drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.2))',
+    filter: 'drop-shadow( 2px 2px 2px rgba(0, 0, 0, 0.2))',
   },
   detailContainer: {
     maxWidth: theme.custom.maxContentWidth,
@@ -531,7 +531,7 @@ const styles = (theme) => ({
     paddingBottom: '20px',
   },
   breadCrumb: {
-    paddingTop: '23px',
+    paddingTop: '17px',
   },
   paddingTop: {
     paddingTop: '36px',
