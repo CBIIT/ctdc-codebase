@@ -1,13 +1,13 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core';
 import HorseShoe from './HorseShoe';
-import ActiveCases from '../../assets/landing/animation/Query-Active.png';
-import InActiveCases from '../../assets/landing/animation/Query-InActive.png';
+import ActiveCases from '../../assets/landing/animation/CasesActive.png';
+import InActiveCases from '../../assets/landing/animation/CasesInActive.png';
 import WhispInActive from '../../assets/landing/animation/Whisp-All_Active.png';
-// import ActiveFiles from '../../assets/landing/animation/activeFiles.svg';
-// import InActiveFiles from '../../assets/landing/animation/InActiveFiles.svg';
-// import ActiveTrials from '../../assets/landing/animation/activeTrials.svg';
-// import InActiveTrials from '../../assets/landing/animation/InActiveTrials.svg';
+import ActiveFiles from '../../assets/landing/animation/FilesActive.png';
+import InActiveFiles from '../../assets/landing/animation/FilesInActive.png';
+import ActiveTrials from '../../assets/landing/animation/TrialsActive.png';
+import InActiveTrials from '../../assets/landing/animation/TrialsInActive.png';
 import CircularIcon from './CircularIcon';
 import FacingDown from '../../assets/landing/animation/Dial_facing_down.svg';
 import FacingUp from '../../assets/landing/animation/Dial_facing_up.svg';
@@ -118,13 +118,13 @@ const InteractiveHero = ({ classes, heroData }) => {
       <HorseShoe transformedHorseShoe={activeState.transformedHorseShoe} />
 
       <div className={classes.trialsIcon} onMouseEnter={() => { setActiveState({ isActive: 'trials', transformedHorseShoe: FacingRight }); }}>
-        <CircularIcon isActive={activeState.isActive === 'trials'} InactiveImage={InActiveCases} activeImage={ActiveCases} />
+        <CircularIcon isActive={activeState.isActive === 'trials'} InactiveImage={InActiveTrials} activeImage={ActiveTrials} />
       </div>
       <div className={classes.trialsText}>
         {activeState.isActive === 'trials' ? <TrialsActiveText heroData={heroData} classes={classes} /> : <TrialsInActiveText heroData={heroData} classes={classes} />}
       </div>
       <div className={classes.filesIcon} onMouseEnter={() => { setActiveState({ isActive: 'files', transformedHorseShoe: FacingDown }); }}>
-        <CircularIcon isActive={activeState.isActive === 'files'} InactiveImage={InActiveCases} activeImage={ActiveCases} />
+        <CircularIcon isActive={activeState.isActive === 'files'} InactiveImage={InActiveFiles} activeImage={ActiveFiles} />
       </div>
       <div className={classes.filesText}>
         {activeState.isActive === 'files' ? <FilesActiveText heroData={heroData} classes={classes} /> : <FilesInActiveText heroData={heroData} classes={classes} />}
