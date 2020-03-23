@@ -94,7 +94,7 @@ const NavBar = ({
           <div id="navbar" className={classes.buttonContainer}>
             <Button id="button_navbar_home" disableRipple weight="medium" className={classes.logotype} classes={{ root: classes.buttonRoot }}>
               <NavLink
-                className={classes.link}
+                className={classes.firstLink}
                 activeStyle={{ borderBottom: '2px solid  #39C0F0' }}
                 to="/home"
               >
@@ -344,6 +344,13 @@ const styles = (theme) => ({
     marginTop: theme.spacing.unit * 2,
     marginBottom: theme.spacing.unit * 2,
     textTransform: 'none',
+  },
+  firstLink: {
+    textDecoration: 'none',
+    color: theme.palette.primary.contrastText,
+    fontFamily: 'Lato',
+    fontSize: '13px',
+    paddingLeft: '12px',
   },
   sendButtonIcon: {
     marginLeft: theme.spacing.unit * 2,
