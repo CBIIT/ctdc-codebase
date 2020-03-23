@@ -157,7 +157,7 @@ const styles = () => ({
   casesSVG: {
     position: 'absolute',
     float: 'left',
-    marginTop: '15px',
+    marginTop: '8px',
     // width: '100px',
     left: '180px',
     color: '#FFFFFF',
@@ -231,8 +231,8 @@ const styles = () => ({
   filesText: {
     position: 'absolute',
     float: 'left',
-    marginTop: '470px',
-    left: '180px',
+    marginTop: '480px',
+    left: '200px',
     width: '150px',
     color: '#FFFFFF',
     fontFamily: 'Oswald',
