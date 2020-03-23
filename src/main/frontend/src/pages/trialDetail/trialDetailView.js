@@ -542,7 +542,7 @@ const styles = (theme) => ({
     fontFamily: 'Lato',
     letterSpacing: '0.025em',
     color: '#415589 ',
-    fontSize: '20pt',
+    fontSize: '18pt',
     lineHeight: '24px',
     paddingLeft: '0px',
 

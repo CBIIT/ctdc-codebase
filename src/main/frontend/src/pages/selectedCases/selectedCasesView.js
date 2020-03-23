@@ -283,7 +283,7 @@ const styles = (theme) => ({
     float: 'left',
     marginTop: '-8.9px',
     width: '82px',
-    filter: 'drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.2))',
+    filter: 'drop-shadow( 2px 2px 2px rgba(0, 0, 0, 0.2))',
   },
   tableWrapper: {
     margin: 'auto 3% auto 3%',
@@ -300,7 +300,7 @@ const styles = (theme) => ({
     fontWeight: 'bold',
     letterSpacing: '0.017em',
     color: '#DE5227',
-    fontSize: '20pt',
+    fontSize: '18pt',
     lineHeight: '75px',
   },
   headerTitle: {
