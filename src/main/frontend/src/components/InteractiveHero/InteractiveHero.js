@@ -104,7 +104,7 @@ const FilesActiveText = ({ classes, heroData }) => (
 
 const InteractiveHero = ({ classes, heroData }) => {
   const [activeState, setActiveState] = React.useState({
-    isActive: 'cases',
+    isActive: '',
     transformedHorseShoe: FacingUp,
   });
   return (
@@ -148,11 +148,11 @@ const styles = () => ({
     },
   },
   casesIcon: {
-    position: 'absolute',
+    left: 52,
     float: 'left',
-    marginTop: '35px',
-    width: '100px',
-    left: '60px',
+    width: 100,
+    position: 'absolute',
+    marginTop: 16,
   },
   casesSVG: {
     position: 'absolute',
@@ -168,9 +168,9 @@ const styles = () => ({
   casesText: {
     position: 'absolute',
     float: 'left',
-    marginTop: '55px',
+    marginTop: '52px',
     width: '180px',
-    left: '150px',
+    left: '172px',
     // color: '#FFFFFF',
     // fontFamily: 'Oswald',
     // fontSize: 16,
@@ -203,7 +203,7 @@ const styles = () => ({
   trialsText: {
     position: 'absolute',
     float: 'left',
-    marginTop: '370px',
+    marginTop: '380px',
     left: '300px',
     width: '150px',
     color: '#FFFFFF',
@@ -242,16 +242,6 @@ const styles = () => ({
   hide: {
     display: 'none',
   },
-  // topGradiaent: {
-  //   height: '18px',
-  //   background: `url(${WhispTop})`,
-  //   margin: '0 auto',
-  // },
-  // bottomGradiaent: {
-  //   height: '18px',
-  //   background: `url(${WhispTop})`,
-  //   margin: '0 auto',
-  // },
   whiteText: {
     color: '#FEFFFF',
     fontFamily: 'Oswald',
