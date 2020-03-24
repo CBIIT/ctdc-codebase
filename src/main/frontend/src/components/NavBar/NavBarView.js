@@ -245,6 +245,9 @@ const styles = (theme) => ({
     [theme.breakpoints.down('xs')]: {
       display: 'none',
     },
+    '&:hover, &:focus': {
+      borderRadius: '0',
+    },
   },
   buttonContainer: {
     margin: '0 auto',
