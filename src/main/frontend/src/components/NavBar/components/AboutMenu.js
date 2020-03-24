@@ -3,7 +3,7 @@ import {
   Button, withStyles,
 } from '@material-ui/core';
 import ExpandMoreRoundedIcon from '@material-ui/icons/ExpandMoreRounded';
-import Menu from './Menu';
+import DropdownMenu from './DropdownMenu';
 
 const AboutMenu = ({ classes }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -35,7 +35,7 @@ const AboutMenu = ({ classes }) => {
         About
         <ExpandMoreRoundedIcon className={classes.icon} />
       </Button>
-      {anchorEl === null ? '' : <Menu />}
+      {anchorEl === null ? '' : <DropdownMenu />}
     </div>
   );
 };
