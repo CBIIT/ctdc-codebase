@@ -6,6 +6,11 @@ import TextField from '@material-ui/core/TextField';
 
 import { withStyles } from '@material-ui/core/styles';
 
+const styles = () => ({
+  multilineFocused: {
+    borderBottom: 'none',
+  },
+});
 
 const CustomFooter = ({
   classes,
@@ -37,10 +42,15 @@ const CustomFooter = ({
         className={classes.textField}
         margin="dense"
         variant="filled"
+        InputProps={{
+          classes: {
+            focused: classes.multilineFocused,
+          },
+        }}
       />
     </TableRow>
     <TableRow />
   </TableFooter>
 );
 
-export default withStyles({}, { withTheme: true })(CustomFooter);
+export default withStyles(styles)(CustomFooter);

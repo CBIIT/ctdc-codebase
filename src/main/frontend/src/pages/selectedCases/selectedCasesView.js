@@ -222,8 +222,11 @@ const SelectedCasesView = ({ data, classes }) => {
               </div>
               <div className={classes.headerTitle}>
                 <div className={classes.headerMainTitle}>
-                  <span>
-                    <span>My Cases: Cases</span>
+                My Cases :
+                  <span className={classes.headerMainTitleTwo}>
+                    {' '}
+                    {' '}
+                Cases
                   </span>
                 </div>
               </div>
@@ -297,11 +300,18 @@ const styles = (theme) => ({
   },
   headerMainTitle: {
     fontFamily: theme.custom.fontFamilySans,
-    fontWeight: 'bold',
+    fontWeight: '300',
     letterSpacing: '0.017em',
     color: '#DE5227',
     fontSize: '18pt',
     lineHeight: '75px',
+    '& $headerMainTitleTwo': {
+      fontWeight: 'bold',
+      letterSpacing: '0.025em',
+    },
+  },
+  headerMainTitleTwo: {
+
   },
   headerTitle: {
     maxWidth: theme.custom.maxContentWidth,

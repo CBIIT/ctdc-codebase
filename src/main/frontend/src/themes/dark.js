@@ -376,7 +376,7 @@ export default {
       iconButton: {
         marginRight: '2.8%',
         '@media (max-width: 1600px)': {
-          marginRight: '1.49%',
+          marginRight: '1.3%',
         },
       },
     },

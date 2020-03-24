@@ -10,15 +10,33 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = () => ({
   buttonRoot: {
-    background: '#DE5227',
+    background: '#C53B27',
     '&:hover': {
-      background: '#DE5227',
+      background: '#C53B27',
     },
     borderRadius: '35px',
-    fontSize: '15px',
-    padding: '10px 40px 10px 40px',
-    maxHeight: '42px',
+    fontSize: '13px',
+    fontFamily: 'raleway',
+    fontWeight: '600',
+    lineHeight: '19px',
+    textAlign: 'center',
+    height: '40px',
+    width: '165px',
     color: '#FFFF',
+    '&$buttonDisabled': {
+      backgroundColor: '#C53B27',
+      opacity: '0.3',
+      border: 'grey 4px solid',
+      color: '#FFFF',
+      fontWeight: '600',
+      fontFamily: 'raleway',
+      fontSize: '13px',
+      lineHeight: '11px',
+      textAlign: 'center',
+    },
+  },
+  buttonDisabled: {
+
   },
 });
 
@@ -40,7 +58,7 @@ const CustomFooter = ({
     <TableRow>
       <TableCell>
         <Link to={count > 0 && 'mycasesfiles'} style={linkStyle}>
-          <Button disabled={count < 1} variant="contained" color="primary" classes={{ root: classes.buttonRoot }}>
+          <Button disabled={count < 1} variant="contained" color="primary" classes={{ root: classes.buttonRoot, disabled: classes.buttonDisabled }}>
             {text}
           </Button>
         </Link>
