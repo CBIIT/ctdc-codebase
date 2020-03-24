@@ -91,7 +91,7 @@ const styles = (theme) => ({
       borderRadius: '10px',
     },
     '*::-webkit-scrollbar-thumb': {
-      backgroundColor: 'rgba(94,140,165)',
+      backgroundColor: '#97b0c0',
       outline: '1px solid slategrey',
       borderRadius: '10px',
     },

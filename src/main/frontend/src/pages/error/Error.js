@@ -93,10 +93,13 @@ const styles = (theme) => ({
   leftBg: {
     backgroundRepeat: 'no-repeat',
     background: `url(${LeftBg})`,
+    backgroundPosition: 'right',
   },
   rightBg: {
     backgroundRepeat: 'no-repeat',
     background: `url(${rightBg})`,
+    backgroundPosition: 'left',
+
   },
   container2: {
     maxWidth: '1200px',
