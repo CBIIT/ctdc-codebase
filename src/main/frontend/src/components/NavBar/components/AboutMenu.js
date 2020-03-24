@@ -1,9 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import {
-  Button, Menu, withStyles, Paper, Fade,
+  Button, withStyles,
 } from '@material-ui/core';
 import ExpandMoreRoundedIcon from '@material-ui/icons/ExpandMoreRounded';
+import Menu from './Menu';
 
 const AboutMenu = ({ classes }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -12,114 +12,31 @@ const AboutMenu = ({ classes }) => {
     setAnchorEl(event.currentTarget);
   }
 
-  function handleClose() {
+  function handleMoveOut() {
     setAnchorEl(null);
   }
 
   return (
-    <>
+    <div
+      onMouseEnter={handleClick}
+      onMouseLeave={handleMoveOut}
+      className={classes.aboutMenu}
+    >
       <Button
         id="button_navbar_about"
         weight="medium"
         aria-controls="simple-menu"
         aria-haspopup="true"
-        onMouseOver={handleClick}
         onFocus={handleClick}
         className={classes.logotype}
         classes={{ root: classes.buttonRoot }}
-        disableRipple
+        activeStyle={{ borderBottom: '2px solid  #39C0F0' }}
       >
         About
         <ExpandMoreRoundedIcon className={classes.icon} />
       </Button>
-      <Menu
-        id="simple-menu"
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-        elevation={0}
-        getContentAnchorEl={null}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'center',
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'center',
-        }}
-        TransitionComponent={Fade}
-        MenuListProps={{
-          style: {
-            padding: 0,
-          },
-        }}
-        PaperProps={{
-          style: {
-            boxShadow: 'none',
-            marginTop: '-8px',
-            marginLeft: '40px',
-            borderRadius: '0px',
-            background: '#309EC4',
-          },
-        }}
-      >
-        <Paper className={classes.paper}>
-          <div className={classes.aboutItemsWrapper} onMouseLeave={handleClose}>
-            <NavLink
-              className={classes.link}
-              activeStyle={{ color: 'white' }}
-              to="/purpose"
-            >
-               Purpose
-            </NavLink>
-            <NavLink
-              className={classes.link}
-              activeStyle={{ color: 'white' }}
-              to="/crdc"
-            >
-               CRDC & Analysis
-            </NavLink>
-            <NavLink
-              className={classes.link}
-              activeStyle={{ color: 'white' }}
-              to="/model"
-            >
-               CTDC Data & Model
-            </NavLink>
-            <NavLink
-              className={classes.link}
-              activeStyle={{ color: 'white' }}
-              to="/data-dictionary"
-            >
-                CTDC Data Dictionary
-            </NavLink>
-            <NavLink
-              className={classes.link}
-              activeStyle={{ color: 'white' }}
-              to="/developers"
-            >
-               Developers
-            </NavLink>
-            <NavLink
-              className={classes.link}
-              activeStyle={{ color: 'white' }}
-              to="/support"
-            >
-               Support
-            </NavLink>
-            <NavLink
-              className={classes.link}
-              activeStyle={{ color: 'white' }}
-              to="/request-access"
-            >
-               Request Access
-            </NavLink>
-
-          </div>
-        </Paper>
-      </Menu>
-    </>
+      {anchorEl === null ? '' : <Menu />}
+    </div>
   );
 };
 
@@ -133,6 +50,9 @@ const styles = (theme) => ({
     letterSpacing: '0.9px',
     [theme.breakpoints.down('xs')]: {
       display: 'none',
+    },
+    '&:hover, &:focus': {
+      borderRadius: '0',
     },
   },
   buttonRoot: {
@@ -163,6 +83,9 @@ const styles = (theme) => ({
   },
   aboutItemsWrapper: {
     maxWidth: '150px',
+  },
+  aboutMenu: {
+    float: 'right',
   },
 });
 
