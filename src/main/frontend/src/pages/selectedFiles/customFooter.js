@@ -7,8 +7,10 @@ import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = () => ({
-  multilineFocused: {
-    borderBottom: 'none',
+  noBorderRadius: {
+    '& fieldset': {
+      borderRadius: 0,
+    },
   },
 });
 
@@ -19,7 +21,6 @@ const CustomFooter = ({
   rowsPerPage,
   onChangePage,
   onChangeRowsPerPage,
-  label,
 }) => (
   <TableFooter>
     <TableRow>
@@ -33,21 +34,20 @@ const CustomFooter = ({
       />
     </TableRow>
     <TableRow>
-      <TextField
-        id="multiline-user-coments"
-        label={label}
-        multiline
-        rows={6}
-        style={{ minWidth: '500px' }}
-        className={classes.textField}
-        margin="dense"
-        variant="filled"
-        InputProps={{
-          classes: {
-            focused: classes.multilineFocused,
-          },
-        }}
-      />
+      <div className={classes.noBorderRadius}>
+        <TextField
+          id="multiline-user-coments"
+          label="User Comments"
+          variant="outlined"
+          multiline
+          rows="6"
+          InputProps={{
+            classes: {
+              focused: classes.focused,
+            },
+          }}
+        />
+      </div>
     </TableRow>
     <TableRow />
   </TableFooter>

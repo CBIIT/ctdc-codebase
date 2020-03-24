@@ -427,20 +427,11 @@ export default {
       multiline: {
         borderRadius: '20px',
       },
-      '&:focused': {
-        borderBottom: 'none',
-      },
       underline: {
         '&:before': {
           borderBottom: 'none',
         },
         '&:after': {
-          borderBottom: 'none',
-        },
-        '&:hover': {
-          borderBottom: 'none',
-        },
-        '&$focused': {
           borderBottom: 'none',
         },
       },
