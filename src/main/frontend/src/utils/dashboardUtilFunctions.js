@@ -17,8 +17,8 @@ export const COLORS_LEVEL_1 = [
 ];
 
 export const COLORS_LEVEL_2 = [
-  '#8b5996',
   '#6ac6b6',
+  '#8b5996',
   '#2b69a3',
   '#287d6d',
   '#af66ff',
