@@ -8,9 +8,17 @@ export const COLORS = [
   '#287d6d',
   '#af66ff',
 ];
+export const COLORS_LEVEL_1 = [
+  '#c2e5dc',
+  '#6ac6b6',
+  '#2b69a3',
+  '#287d6d',
+  '#af66ff',
+];
+
 export const COLORS_LEVEL_2 = [
-  '#194563',
-  '#fc4b5b',
+  '#8b5996',
+  '#6ac6b6',
   '#2b69a3',
   '#287d6d',
   '#af66ff',
@@ -125,11 +133,11 @@ export function getSunburstDataFromDashboardData(data) {
     if (!existTrial && !existArm) {
       widgetData.push({
         title: d.clinical_trial_code,
-        color: COLORS[parseInt(colorIndex, 10)],
+        color: COLORS_LEVEL_1[parseInt(colorIndex, 10)],
         caseSize: 1,
         children: [{
           title: `${d.clinical_trial_code} : ${d.arm_id}`,
-          color: COLORS[parseInt(colorIndex, 10)],
+          color: COLORS_LEVEL_2[parseInt(colorIndex, 10)],
           size: 1,
           caseSize: 1,
         }],
@@ -141,7 +149,7 @@ export function getSunburstDataFromDashboardData(data) {
   return ({
     key: uuid.v1(),
     title: 'root',
-    color: COLORS[parseInt(colorIndex, 10)],
+    color: COLORS_LEVEL_1[parseInt(colorIndex, 10)],
     children: widgetData,
   });
 }
