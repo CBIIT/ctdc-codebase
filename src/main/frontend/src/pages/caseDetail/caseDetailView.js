@@ -401,6 +401,7 @@ const styles = (theme) => ({
     paddingLeft: '0px',
     fontWeight: '300',
     letterSpacing: '0.017em',
+    paddingTop: '10px',
     '& $headerMainTitleTwo': {
       fontWeight: 'bold',
       letterSpacing: '0.025em',
@@ -531,7 +532,7 @@ const styles = (theme) => ({
     paddingBottom: '20px',
   },
   breadCrumb: {
-    paddingTop: '17px',
+    paddingTop: '10px',
   },
   paddingTop: {
     paddingTop: '36px',
