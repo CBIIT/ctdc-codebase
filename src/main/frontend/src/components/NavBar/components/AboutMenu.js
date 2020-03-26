@@ -5,15 +5,20 @@ import {
 import ExpandMoreRoundedIcon from '@material-ui/icons/ExpandMoreRounded';
 import DropdownMenu from './DropdownMenu';
 
-const AboutMenu = ({ classes }) => {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+const AboutMenu = ({ classes, handleButtonClickEvent, clickedEl }) => {
+  const [displayDropDownMenu, setDisplayDropDownMenu] = React.useState(false);
 
-  function handleClick(event) {
-    setAnchorEl(event.currentTarget);
+  function handleClick() {
+    setDisplayDropDownMenu(true);
   }
 
   function handleMoveOut() {
-    setAnchorEl(null);
+    setDisplayDropDownMenu(false);
+  }
+
+  function dropdownMenuClickEvent() {
+    setDisplayDropDownMenu(false);
+    handleButtonClickEvent('aboutMenu');
   }
 
   return (
@@ -30,12 +35,13 @@ const AboutMenu = ({ classes }) => {
         onFocus={handleClick}
         className={classes.logotype}
         classes={{ root: classes.buttonRoot }}
-        activeStyle={{ borderBottom: '2px solid  #39C0F0' }}
       >
+        <span className={clickedEl === 'aboutMenu' ? classes.buttonRootClicked : ''}>
         About
+        </span>
         <ExpandMoreRoundedIcon className={classes.icon} />
       </Button>
-      {anchorEl === null ? '' : <DropdownMenu />}
+      {displayDropDownMenu ? <DropdownMenu handleClick={dropdownMenuClickEvent} /> : ''}
     </div>
   );
 };
@@ -59,6 +65,9 @@ const styles = (theme) => ({
     paddingTop: '9px',
     paddingLeft: '20px',
     paddingRight: '20px',
+  },
+  buttonRootClicked: {
+    borderBottom: '2px solid  #39C0F0',
   },
   icon: {
     fontSize: '18px',
