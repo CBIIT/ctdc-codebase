@@ -423,18 +423,5 @@ export default {
         borderTop: '6px #E7E5E5 solid',
       },
     },
-    MuiFilledInput: {
-      multiline: {
-        borderRadius: '20px',
-      },
-      underline: {
-        '&:before': {
-          borderBottom: 'none',
-        },
-        '&:after': {
-          borderBottom: 'none',
-        },
-      },
-    },
   },
 };
