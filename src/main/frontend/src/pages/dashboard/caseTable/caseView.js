@@ -77,7 +77,12 @@ const Cases = ({ classes, data }) => {
 
   useEffect(() => {
     saveButton.current.disabled = true;
-    saveButton.current.style.backgroundColor = 'rgb(0, 0, 0,0.12)';
+    saveButton.current.style.color = '#FFFF';
+    saveButton.current.style.backgroundColor = '#C53B27';
+    saveButton.current.style.opacity = '0.3';
+    saveButton.current.style.border = '3px solid grey';
+    saveButton.current.style.fontWeight = '600';
+    saveButton.current.style.cursor = 'auto';
   });
 
   const columns = [
@@ -223,13 +228,18 @@ const Cases = ({ classes, data }) => {
     if (allRowsSelected.length === 0) {
       saveButton.current.disabled = true;
       saveButton.current.style.color = '#FFFFFF';
-      saveButton.current.style.backgroundColor = 'rgba(0, 0, 0, 0.12)';
+      saveButton.current.style.backgroundColor = '#C53B27';
+      saveButton.current.style.opacity = '0.3';
+      saveButton.current.style.border = '3px solid grey';
+      saveButton.current.style.fontWeight = '600';
       saveButton.current.style.cursor = 'auto';
     } else {
       saveButton.current.disabled = false;
       saveButton.current.style.color = '#FFFFFF';
-      saveButton.current.style.backgroundColor = '#DF5226';
+      saveButton.current.style.backgroundColor = '#C53B27';
       saveButton.current.style.cursor = 'pointer';
+      saveButton.current.style.opacity = 'unset';
+      saveButton.current.style.border = 'unset';
     }
   }
 
@@ -333,19 +343,20 @@ const styles = (theme) => ({
     paddingLeft: '25px',
   },
   saveButton: {
-    color: 'rgba(0, 0, 0, 0.26)',
+    color: '#FFFF',
     boxShadow: 'none',
-    backgroundColor: 'rgba(0, 0, 0, 0.12)',
-    padding: '6px 16px',
-    fontSize: '0.875rem',
-    minWidth: '64px',
+    backgroundColor: '#C53B27',
     boxSizing: 'border-box',
     transition: 'background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
-    lineHeight: '1.75',
-    fontWeight: '500',
-    fontFamily: theme.custom.fontFamily,
+    height: '40px',
+    width: '200px',
+    lineHeight: '11px',
+    fontSize: '13px',
+    fontWeight: '600',
+    fontFamily: 'raleway',
     borderRadius: '35px',
     textTransform: 'uppercase',
+    textAlign: 'center',
   },
   link: {
     color: '#DD401C',

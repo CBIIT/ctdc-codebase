@@ -24,7 +24,11 @@ class selectedFilesView extends Component {
     // It may a problem that the code below always
     // set downloadButton as grey out .
     this.downloadButton.current.disabled = true;
-    this.downloadButton.current.style.color = 'rgb(0, 0, 0,0.26)';
+    this.downloadButton.current.style.color = '#FFFF';
+    this.downloadButton.current.style.opacity = '0.3';
+    this.downloadButton.current.style.border = '3px solid grey';
+    this.downloadButton.current.style.fontWeight = '600';
+    this.downloadButton.current.style.backgroundColor = '#C53B27';
   }
 
   static getDerivedStateFromProps(nextProps) {
@@ -39,12 +43,18 @@ class selectedFilesView extends Component {
     if (allRowsSelected.length === 0) {
       this.downloadButton.current.disabled = true;
       this.downloadButton.current.style.color = '#FFFFFF';
-      this.downloadButton.current.style.backgroundColor = 'rgba(0, 0, 0, 0.12)';
+      this.downloadButton.current.style.backgroundColor = '#C53B27';
+      this.downloadButton.current.style.opacity = '0.3';
+      this.downloadButton.current.style.border = '3px solid grey';
+      this.downloadButton.current.style.fontWeight = '600';
+      this.downloadButton.current.style.cursor = 'auto';
     } else {
       this.downloadButton.current.disabled = false;
       this.downloadButton.current.style.color = '#FFFFFF';
-      this.downloadButton.current.style.backgroundColor = '#DE5227';
+      this.downloadButton.current.style.backgroundColor = '#C53B27';
       this.downloadButton.current.style.cursor = 'pointer';
+      this.downloadButton.current.style.opacity = 'unset';
+      this.downloadButton.current.style.border = 'unset';
     }
   }
 
@@ -293,18 +303,20 @@ class selectedFilesView extends Component {
     const btnStyle = {
       color: 'rgba(0, 0, 0,0.26)',
       boxShadow: 'none',
-      backgroundColor: 'rgba(0, 0, 0, 0.12)',
-      padding: '6px 16px',
-      fontSize: '0.875rem',
-      minWidth: '64px',
+      backgroundColor: '#C53B27',
       boxSizing: 'border-box',
       transition: 'background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
-      lineHeight: '1.75',
-      fontWeight: '500',
-      fontFamily: '"Lato Regular","Roboto", "Helvetica", "Arial", sans-serif',
+      height: '40px',
+      width: '200px',
+      lineHeight: '11px',
+      fontSize: '13px',
+      fontWeight: '600',
+      fontFamily: 'raleway',
       borderRadius: '35px',
       textTransform: 'uppercase',
       marginLeft: '-28px',
+      textAlign: 'center',
+      marginTop: '14px',
     };
 
     const divStyle = {
@@ -326,8 +338,11 @@ class selectedFilesView extends Component {
               </div>
               <div className={classes.headerTitle}>
                 <div className={classes.headerMainTitle}>
-                  <span>
-                    <span>My Cases: Files</span>
+                My Cases :
+                  <span className={classes.headerMainTitleTwo}>
+                    {' '}
+                    {' '}
+                Files
                   </span>
                 </div>
               </div>
@@ -384,11 +399,18 @@ const styles = (theme) => ({
   },
   headerMainTitle: {
     fontFamily: theme.custom.fontFamilySans,
-    fontWeight: 'bold',
+    fontWeight: '300',
     letterSpacing: '0.017em',
     color: '#DE5227',
     fontSize: '18pt',
     lineHeight: '75px',
+    '& $headerMainTitleTwo': {
+      fontWeight: 'bold',
+      letterSpacing: '0.025em',
+    },
+  },
+  headerMainTitleTwo: {
+
   },
   headerTitle: {
     maxWidth: theme.custom.maxContentWidth,
@@ -417,7 +439,7 @@ const styles = (theme) => ({
     margin: '80px',
     marginLeft: '3%',
     marginRight: '3%',
-    paddingBottom: '20px',
+    paddingBottom: '36px',
     background: 'white',
   },
   tableCell1: {
