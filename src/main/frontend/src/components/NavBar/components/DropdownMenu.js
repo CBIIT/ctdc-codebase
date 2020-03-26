@@ -5,7 +5,7 @@ import {
 } from '@material-ui/core';
 
 
-const CustomDropdownMenu = ({ classes }) => (
+const CustomDropdownMenu = ({ classes, handleClick }) => (
   <>
     <Paper className={classes.paper}>
       <div className={classes.aboutItemsWrapper} id="aboutDropDown">
@@ -13,6 +13,7 @@ const CustomDropdownMenu = ({ classes }) => (
           className={classes.link}
           activeStyle={{ color: 'white' }}
           to="/purpose"
+          onClick={handleClick}
         >
                Purpose
         </NavLink>
@@ -20,6 +21,7 @@ const CustomDropdownMenu = ({ classes }) => (
           className={classes.link}
           activeStyle={{ color: 'white' }}
           to="/crdc"
+          onClick={handleClick}
         >
                CRDC & Analysis
         </NavLink>
@@ -27,6 +29,7 @@ const CustomDropdownMenu = ({ classes }) => (
           className={classes.link}
           activeStyle={{ color: 'white' }}
           to="/model"
+          onClick={handleClick}
         >
                CTDC Data & Model
         </NavLink>
@@ -34,6 +37,7 @@ const CustomDropdownMenu = ({ classes }) => (
           className={classes.link}
           activeStyle={{ color: 'white' }}
           to="/data-dictionary"
+          onClick={handleClick}
         >
                 CTDC Data Dictionary
         </NavLink>
@@ -41,6 +45,7 @@ const CustomDropdownMenu = ({ classes }) => (
           className={classes.link}
           activeStyle={{ color: 'white' }}
           to="/developers"
+          onClick={handleClick}
         >
                Developers
         </NavLink>
@@ -48,6 +53,7 @@ const CustomDropdownMenu = ({ classes }) => (
           className={classes.link}
           activeStyle={{ color: 'white' }}
           to="/support"
+          onClick={handleClick}
         >
                Support
         </NavLink>
@@ -55,6 +61,7 @@ const CustomDropdownMenu = ({ classes }) => (
           className={classes.link}
           activeStyle={{ color: 'white' }}
           to="/request-access"
+          onClick={handleClick}
         >
                Request Access
         </NavLink>

@@ -5,9 +5,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   AppBar,
   Button,
-  // Divider,
-  // Drawer,
-  // IconButton,
   Toolbar,
   Tooltip,
   withStyles,
@@ -36,6 +33,12 @@ const NavBar = ({
   // Empty second argument of react useEffect will avoid the infinte loop that
   // caused due to component update
   const dispatch = useDispatch();
+  const [clickedEl, setClickedEl] = React.useState(null);
+
+  function handleButtonClickEvent(eventName) {
+    setClickedEl(eventName);
+  }
+
   React.useEffect(() => {
     dispatch(initCart());
     const values = queryString.parse(window.location.search);
@@ -97,6 +100,7 @@ const NavBar = ({
                 className={classes.firstLink}
                 activeStyle={{ borderBottom: '2px solid  #39C0F0' }}
                 to="/home"
+                onClick={() => handleButtonClickEvent('home')}
               >
               home
               </NavLink>
@@ -106,6 +110,7 @@ const NavBar = ({
                 className={classes.link}
                 activeStyle={{ borderBottom: '2px solid  #39C0F0' }}
                 to="/trials"
+                onClick={() => handleButtonClickEvent('trials')}
               >
               Trials
               </NavLink>
@@ -117,11 +122,12 @@ const NavBar = ({
                 className={classes.link}
                 activeStyle={{ borderBottom: '2px solid  #39C0F0' }}
                 to="/cases"
+                onClick={() => handleButtonClickEvent('cases')}
               >
               Cases
               </NavLink>
             </Button>
-            <AboutMenu />
+            <AboutMenu handleButtonClickEvent={handleButtonClickEvent} clickedEl={clickedEl} />
           </div>
           {/* <div className={classes.grow} /> */}
           {/* Start of Theme Switching Icon and logic */}
@@ -353,7 +359,6 @@ const styles = (theme) => ({
     color: theme.palette.primary.contrastText,
     fontFamily: 'Lato',
     fontSize: '13px',
-    paddingLeft: '12px',
   },
   sendButtonIcon: {
     marginLeft: theme.spacing.unit * 2,
