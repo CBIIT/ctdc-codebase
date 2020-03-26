@@ -9,7 +9,8 @@ import { withStyles } from '@material-ui/core/styles';
 const styles = () => ({
   noBorderRadius: {
     '& fieldset': {
-      borderRadius: 0,
+      borderRadius: '20px',
+      border: '2.51px solid #B7B7B7',
     },
   },
 });
@@ -41,6 +42,7 @@ const CustomFooter = ({
           variant="outlined"
           multiline
           rows="6"
+          style={{ minWidth: '312px' }}
           InputProps={{
             classes: {
               focused: classes.focused,

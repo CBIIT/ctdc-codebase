@@ -26,7 +26,7 @@ class selectedFilesView extends Component {
     this.downloadButton.current.disabled = true;
     this.downloadButton.current.style.color = '#FFFF';
     this.downloadButton.current.style.opacity = '0.3';
-    this.downloadButton.current.style.border = 'grey 4px solid';
+    this.downloadButton.current.style.border = '3px solid grey';
     this.downloadButton.current.style.fontWeight = '600';
     this.downloadButton.current.style.backgroundColor = '#C53B27';
   }
@@ -45,7 +45,7 @@ class selectedFilesView extends Component {
       this.downloadButton.current.style.color = '#FFFFFF';
       this.downloadButton.current.style.backgroundColor = '#C53B27';
       this.downloadButton.current.style.opacity = '0.3';
-      this.downloadButton.current.style.border = 'grey 4px solid';
+      this.downloadButton.current.style.border = '3px solid grey';
       this.downloadButton.current.style.fontWeight = '600';
       this.downloadButton.current.style.cursor = 'auto';
     } else {
@@ -316,6 +316,7 @@ class selectedFilesView extends Component {
       textTransform: 'uppercase',
       marginLeft: '-28px',
       textAlign: 'center',
+      marginTop: '14px',
     };
 
     const divStyle = {
@@ -438,7 +439,7 @@ const styles = (theme) => ({
     margin: '80px',
     marginLeft: '3%',
     marginRight: '3%',
-    paddingBottom: '20px',
+    paddingBottom: '36px',
     background: 'white',
   },
   tableCell1: {

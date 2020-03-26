@@ -81,7 +81,7 @@ const Cases = ({ classes, data }) => {
     saveButton.current.style.color = '#FFFF';
     saveButton.current.style.backgroundColor = '#C53B27';
     saveButton.current.style.opacity = '0.3';
-    saveButton.current.style.border = 'grey 4px solid';
+    saveButton.current.style.border = '3px solid grey';
     saveButton.current.style.fontWeight = '600';
     saveButton.current.style.cursor = 'auto';
   });
@@ -231,7 +231,7 @@ const Cases = ({ classes, data }) => {
       saveButton.current.style.color = '#FFFFFF';
       saveButton.current.style.backgroundColor = '#C53B27';
       saveButton.current.style.opacity = '0.3';
-      saveButton.current.style.border = 'grey 4px solid';
+      saveButton.current.style.border = '3px solid grey';
       saveButton.current.style.fontWeight = '600';
       saveButton.current.style.cursor = 'auto';
     } else {

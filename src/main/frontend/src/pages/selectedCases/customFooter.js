@@ -26,7 +26,7 @@ const styles = () => ({
     '&$buttonDisabled': {
       backgroundColor: '#C53B27',
       opacity: '0.3',
-      border: 'grey 4px solid',
+      border: '3px solid grey',
       color: '#FFFF',
       fontWeight: '600',
       fontFamily: 'raleway',
