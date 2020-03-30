@@ -125,7 +125,7 @@
         - "$$*arm:*$$ A treatment arm tests a single therapeutic agent against a set of genomic aberrations. Each arm may accrue at most 35 patients; for arms studying more common genomic aberrations up to 70 patients may be enrolled. Each treatment arm has a set of inclusion and exclusion criteria."
         - "$$*case:*$$ An individual who has consented to participate in and has registered in the NCI-MATCH clinical trial. A case may be assigned to zero or more arms."
         - "$$*metastatic_site:*$$ An anatomic site, that is not the primary site of disease, in trial participant, where cancerous cells have been detected. A case may have zero or more metastatic_sites."
-        - "$$*specimen:*$$ A tumor tissue sample extracted from a case. One or more specimens may be associated with a case."
+        - "$$*specimen:*$$ A tissue sample extracted from a case. One or more specimens may be associated with a case. Specimens may be of type tumor or normal."
         - "$$*ihc_assay_report:*$$ A report generated from immunohistochemistry (IHC) tests performed on a specimen. In general, the expression of four genes: PTEN, MLH1, MSH2 and RB, is assayed by a single IHC assay run. Only one ihc_assay_report, per gene,  is associated with a specimen. "
         - "$$*nucleic_acid:*$$ An aliquot of nucleic acid prepared from a specimen. "
         - "$$*sequencing_assay:*$$ A sequencing test performed on the nucleic_acid aliquot to identify genomic abnormalities present in the specimen. A case may have multiple sequencing assays."
