@@ -492,6 +492,7 @@ const styles = (theme) => ({
     fontFamily: theme.custom.fontFamily,
     paddingLeft: '32px',
     paddingRight: '32px',
+    background: '#FFFF',
   },
   content: {
     fontSize: '15px',
@@ -647,7 +648,7 @@ const styles = (theme) => ({
     overflowY: 'auto',
     overflowX: 'hidden',
     width: 'calc(100% + 8px) !important',
-    margin: '0px -8px',
+    margin: '0px -8px -5px -8px',
 
   },
   borderRight: {
