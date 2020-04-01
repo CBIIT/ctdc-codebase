@@ -493,6 +493,7 @@ const styles = (theme) => ({
     paddingLeft: '32px',
     paddingRight: '32px',
     background: '#FFFF',
+    paddingBottom: '16px',
   },
   content: {
     fontSize: '15px',
@@ -617,7 +618,7 @@ const styles = (theme) => ({
   detailContainer: {
     maxWidth: theme.custom.maxContentWidth,
     margin: 'auto',
-    paddingTop: '30px',
+    paddingTop: '24px',
     paddingLeft: '36px',
     paddingRight: '36px',
     fontFamily: theme.custom.fontFamily,
@@ -674,9 +675,8 @@ const styles = (theme) => ({
     paddingTop: '12px',
   },
   tableDiv: {
-    paddingTop: '31px',
     maxWidth: theme.custom.maxContentWidth,
-    margin: '40px auto auto auto',
+    margin: '22px auto auto auto',
   },
 
   headerButtonLink: {
