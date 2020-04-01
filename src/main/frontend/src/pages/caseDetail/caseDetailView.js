@@ -470,14 +470,15 @@ const styles = (theme) => ({
   },
   detailContainerLeft: {
     padding: '24px 0px 0 2px !important',
-    minHeight: '215px',
+    minHeight: '209px',
     maxHeight: '500px',
     overflowY: 'auto',
     overflowX: 'hidden',
   },
   detailContainerRight: {
     padding: '24px 20px 0px 20px !important',
-    minHeight: '215px',
+    marginBottom: '24px',
+    minHeight: '209px',
     maxHeight: '500px',
     overflowY: 'auto',
     overflowX: 'hidden',
@@ -490,9 +491,8 @@ const styles = (theme) => ({
     paddingLeft: '32px',
   },
   tableDiv: {
-    paddingTop: '31px',
     maxWidth: theme.custom.maxContentWidth,
-    margin: '40px auto auto auto',
+    margin: '22px auto auto auto',
   },
   headerButtonLink: {
     textDecoration: 'none',
