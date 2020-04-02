@@ -1,7 +1,5 @@
 title: 'CTDC Data Dictionary '
-introduction: "The CTDC conceptual data model consists of the following sixteen entities or node types. Nodes are connected by 
-relationships (see Figure 1.0). Both node and relationship types may have associated attributes; these attributes are 
-described in the Data Dictionary section."
+introduction: "Clinical trials in precision medicine generate large volumes of complex biomedical data types- patient metadata, molecular variant profiles and treatment outcomes. To address this complexity CTDC has used a graph structure to model a clinical trial workflow.  Key trial entities have been modelled as node types, while the association between nodes have been explicitly modelled as relationship types. There are 16 node types and 17 relationship types in the CTDC data model, these are listed in the section CTDC node types and Table 1, respectively. Both nodes and relationships store data attributes in the form of properties. These data attributes are listed in the section Data Dictionary. The CTDC graph data model has been implemented in Neo4J, a commercial graph database platform."
 attribute:
   - row:
     - "case"

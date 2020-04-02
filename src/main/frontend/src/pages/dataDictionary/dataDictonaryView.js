@@ -1,11 +1,13 @@
+/* eslint-disable */
+
 import React from 'react';
 // import { Grid, withStyles, Link } from '@material-ui/core';
 import { withStyles, Divider } from '@material-ui/core';
 
 import AboutHeader from '../about/aboutHeaderView';
 import Stats from '../../components/Stats/AllStatsController';
-import Navbar from './alphabet';
-import Section from './section';
+import Navbar from './alphabetComponent';
+import Section from './attributeComponent';
 // import externalIcon from '../../assets/about/About-ExternalLink.svg';
 // import submissionGuide from '../../assets/footer/ICDC_DGAB_Guidelines.pdf';
 
@@ -14,24 +16,41 @@ const AboutBody = ({ classes, data }) => (
     <Stats />
     <AboutHeader title={data.title} />
     <div className={classes.container}>
+      <Navbar />
       <Divider variant="middle" classes={{ root: classes.dividerRoot }} />
       <div className={classes.sectionContainer}>
         <div className={classes.sectionTitle}>Introduction</div>
         <div className={classes.introText}>{data.introduction}</div>
-        <Navbar />
+      </div>
+      <Divider variant="middle" classes={{ root: classes.dividerRoot }} />
+      <div className={classes.sectionContainer}>
+        <div className={classes.sectionTitle}>CTDC Node Types</div>
+        <div className={classes.nodeTypeTitle}>clinical_trial</div>
+        <div className={classes.nodeTypeDesc}>An interventional clinical research study that is represented within the CTDC, in terms of its design, data and key results. </div>
+        <div className={classes.nodeTypeTitle}>arm</div>
+        <div className={classes.nodeTypeDesc}> A treatment arm tests a single therapeutic agent against a set of genomic aberrations. Each arm may accrue at most 35 patients; for arms studying more common genomic aberrations up to 70 patients may be enrolled. Each treatment arm has a set of inclusion and exclusion criteria.</div>
+      </div>
+      <Divider variant="middle" classes={{ root: classes.dividerRoot }} />
+      <div className={classes.sectionContainer}>
+        <div className={classes.sectionTitle}>Document Conventions</div>
+        <div className={classes.nodeTypeTitle}>Descriptors for Each Attribute</div>
+        <div className={classes.nodeTypeDesc}>An interventional clinical research study that is represented within the CTDC, in terms of its design, data and key results. </div>
+      </div>
+      <Divider variant="middle" classes={{ root: classes.dividerRoot }} />
+      <Navbar />
+      <div className={classes.sectionContainer}>
         {data.attribute ? data.attribute.map((row) => (
           <Section
             data={row}
           />
         )) : ''}
-
       </div>
       <Divider variant="middle" classes={{ root: classes.dividerRoot }} />
     </div>
   </>
 );
 
-const styles = (theme) => ({
+const styles = () => ({
 
   container: {
     margin: 'auto',
@@ -47,83 +66,32 @@ const styles = (theme) => ({
     height: '2px',
   },
   introText: {
-
+    color: '#1C849A',
+    fontFamily: 'Raleway',
+    fontSize: '1em',
+    fontWeight: 500,
+    lineHeight: '2em',
   },
   sectionTitle: {
-
-  },
-  text: {
-    // height: '476px',
-    // width: '675px',
-    color: '#000000',
-    fontFamily: theme.custom.fontFamily,
-    fontSize: '15px',
-    lineHeight: '22px',
-  },
-  title: {
-    color: '#0B3556',
+    paddingBottom: '32px',
+    color: '#2F2F2F',
+    fontFamily: 'Lato',
+    fontSize: 21,
     fontWeight: 'bold',
-  },
-  rightSection: {
-    padding: '8px 25px !important',
-    float: 'left',
-  },
-  leftSection: {
-    float: 'left',
-  },
-  aboutSection: {
-    margin: '60px auto 60px auto',
-  },
-  img: {
-    width: '100%',
-  },
-  linkIcon: {
-    width: '20px',
-    verticalAlign: 'sub',
-    margin: '0px 0px 0px 2px',
-  },
-  link: {
-    color: '#0296C9',
-    '&:hover': {
-      color: '#0296C9',
-    },
-  },
-  tableDiv: {
-    marginTop: '45px',
-  },
-  table: {
-    borderSpacing: '0',
-    borderCollapse: 'collapse',
-    fontSize: '12px',
-    fontWeight: 'bold',
-    letterSpacing: '0.025em',
-    lineHeight: '30px',
-    textAlign: 'left',
-    width: '100%',
-  },
-  tableHeader: {
-    fontFamily: theme.custom.fontFamily,
-    color: '#194563',
     textTransform: 'uppercase',
+  },
+  nodeTypeTitle: {
+    color: '#358DBA',
+    fontFamily: 'Lato',
+    fontSize: 21,
+    fontWeight: 'bold',
+  },
+  nodeTypeDesc: {
+    color: 'black',
+    fontFamily: 'Lato',
+    fontSize: 21,
+  },
 
-  },
-  tableBodyRow: {
-    borderSpacing: '0',
-    borderCollapse: 'collapse',
-    color: '#3E7AAA',
-  },
-  tableCell: {
-    fontFamily: theme.custom.fontFamily,
-    fontSize: '14px',
-    padding: '8px 15px 8px 0px',
-    borderBottom: '0.66px solid #087CA5',
-  },
-  headerCell: {
-    borderBottom: '4px solid #087CA5',
-    borderSpacing: '0',
-    borderCollapse: 'collapse',
-    fontWeight: 'bolder',
-  },
 });
 
 AboutBody.defaultProps = {
