@@ -18,6 +18,7 @@ import SelectedCases from '../../pages/selectedCases/selectedCasesController';
 import SelectedFiles from '../../pages/selectedFiles/selectedFilesController';
 import Home from '../../pages/landing/landingController';
 import About from '../../pages/about/aboutController';
+import DataDictonary from '../../pages/dataDictionary/dataDictonaryController';
 import Trials from '../../pages/trials/trialsController';
 import TrialDetail from '../../pages/trialDetail/trialDetailController';
 
@@ -58,7 +59,7 @@ const Layout = ({ classes, isSidebarOpened }) => (
             <Route path="/developers" component={About} />
             <Route path="/support" component={About} />
             <Route path="/request-access" component={About} />
-            <Route path="/data-dictionary" component={About} />
+            <Route path="/data-dictionary" component={DataDictonary} />
             <Route component={Error} />
           </Switch>
           <Footer data={{ isSidebarOpened }} />
