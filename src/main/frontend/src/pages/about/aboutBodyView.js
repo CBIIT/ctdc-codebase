@@ -4,6 +4,7 @@ import AboutHeader from './aboutHeaderView';
 import Stats from '../../components/Stats/AllStatsController';
 import externalIcon from '../../assets/about/About-ExternalLink.svg';
 import submissionGuide from '../../assets/footer/ICDC_DGAB_Guidelines.pdf';
+import MyCasesWizardStep4 from '../../assets/icons/MyCases-Wizard-Step4.svg';
 
 const AboutBody = ({ classes, data }) => {
   function boldText(text) {
@@ -51,6 +52,16 @@ const AboutBody = ({ classes, data }) => {
                   <ol type="a">
                     { contentObj.listWithAlpahbets.map((listObj) => <li>{listObj.includes('$$') ? boldText(listObj) : listObj}</li>)}
                   </ol>
+                </div>
+                )}
+                {/* MyCases-Wizard-Step4-SVG */}
+                {contentObj.image && (
+                <div className={classes.text}>
+                  <img
+                    src={MyCasesWizardStep4}
+                    alt="MyCasesWizardStep4"
+                    className={classes.MyCasesWizardStep4}
+                  />
                 </div>
                 )}
                 {/* Paragraphs */}
@@ -218,6 +229,9 @@ const styles = (theme) => ({
     borderSpacing: '0',
     borderCollapse: 'collapse',
     fontWeight: 'bolder',
+  },
+  MyCasesWizardStep4: {
+    width: '600px',
   },
 });
 

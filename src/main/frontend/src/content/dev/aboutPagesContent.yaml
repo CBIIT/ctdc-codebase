@@ -30,6 +30,7 @@
        Cloud Platform, Terra empowers analysts, tool developers, and production managers to run large-scale analysis and to share results with collaborators. 
        Users can upload their own analysis methods and data to workspaces or run the Broad’s best practice tools and pipelines."
     - paragraph: "$$*FROM CTDC TO CLOUD RESOURCES:*$$"
+    - image: "MyCases-Wizard-Step4-SVG"
     - paragraph: "Researchers find cases/cohorts in CTDC and then identify the files they would like to use for analysis. This list of files is called a Manifest. 
         The user will download the Manifest and then upload the Manifest into SBG where the files will be available for analysis. The user will need a SBG account. 
         The Manifest file is a text file consisting of CRDC Identifiers and, on uploading to SBG, the user will be able to access the relevant data files and see 
