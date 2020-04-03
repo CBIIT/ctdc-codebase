@@ -186,7 +186,14 @@ export const STATS_QUERY = gql`{
   `;
 export const LANDING_QUERY = gql`{
   numberOfCases
-  numberOfDiagnoses
+  numberOfTrials
   numberOfFiles
+  numberOfArms
+  numberOfFileTypes
+  numberOfDiagnoses
+  diagnosisCountByArm {
+    arm_id
+    diagnoses
+    }
   }
   `;

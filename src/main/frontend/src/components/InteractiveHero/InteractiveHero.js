@@ -10,21 +10,16 @@ import ActiveTrials from '../../assets/landing/animation/TrialsActive.png';
 import InActiveTrials from '../../assets/landing/animation/TrialsInActive.png';
 import CircularIcon from './CircularIcon';
 import FacingDown from '../../assets/landing/animation/Dial_facing_down.svg';
+import FacingLeft from '../../assets/landing/animation/Dial_facing_left.svg';
 import FacingUp from '../../assets/landing/animation/Dial_facing_up.svg';
 import FacingRight from '../../assets/landing/animation/Dial_facing_right.svg';
 
 const CasesInActiveText = ({ classes, heroData }) => (
   <div className={classes.inActiveTextBG}>
-    <div className={classes.whiteText}>
+    <div className={classes.whiteTextInactive}>
       {heroData ? heroData.numberOfCases : 'NA'}
       {' '}
 CASES
-    </div>
-    <div className={classes.blueText}>
-  from 1 TRIAL
-    </div>
-    <div className={classes.blueText}>
-  from 2 ARMS
     </div>
   </div>
 );
@@ -34,55 +29,67 @@ const CasesActiveText = ({ classes, heroData }) => (
     <div className={classes.whiteText}>
       {heroData ? heroData.numberOfCases : 'NA'}
       {' '}
-ACTIVE
+      CASES
     </div>
     <div className={classes.blueText}>
-  from 1 TRIAL
+  from
+      {' '}
+      {heroData ? heroData.numberOfTrials : 'NA'}
+      {' '}
+TRIAL
     </div>
     <div className={classes.blueText}>
-  from 2 ARMS
+  from
+      {' '}
+      {heroData ? heroData.numberOfArms : 'NA'}
+      {' '}
+ARMS
     </div>
   </div>
 );
 
 const TrialsInActiveText = ({ classes, heroData }) => (
   <div className={classes.inActiveTextBG}>
-    <div className={classes.blueText}>
-      {heroData ? heroData.numberOfFiles : 'NA'}
+    <div className={classes.whiteTextInactive}>
+      {heroData ? heroData.numberOfDiagnoses : 'NA'}
       {' '}
-DIFFERENT FILE TYPES
-    </div>
-    <div className={classes.whiteText}>
-  from 1000 FILES
+      DIAGNOSIS
     </div>
   </div>
 );
 
-const TrialsActiveText = ({ classes, heroData }) => (
-  <div className={classes.inActiveTextBG}>
-    <div className={classes.blueText}>
-      {heroData ? heroData.numberOfFiles : 'NA'}
-      {' '}
-ACTIVE FILE TYPES
+const TrialsActiveText = ({ classes, heroData }) => {
+  const sortedDiagnosis = heroData.diagnosisCountByArm.sort((a, b) => a.diagnoses > b.diagnoses);
+  return (
+    <div className={classes.inActiveTextBG}>
+      <div className={classes.blueText}>
+Top 2 Diagnosis
+      </div>
+      <div className={classes.whiteText}>
+        {sortedDiagnosis[0] && sortedDiagnosis[0].diagnoses}
+        {' '}
+Diagnoses from
+        {' '}
+        {sortedDiagnosis[0] && sortedDiagnosis[0].arm_id}
+      </div>
+      <div className={classes.whiteText}>
+        {sortedDiagnosis[1] && sortedDiagnosis[1].diagnoses}
+        {' '}
+Diagnoses from
+        {' '}
+        {sortedDiagnosis[1] && sortedDiagnosis[1].arm_id}
+      </div>
     </div>
-    <div className={classes.whiteText}>
-  from 1000 FILES
-    </div>
-  </div>
-);
+  );
+};
 
 
 const FilesInActiveText = ({ classes, heroData }) => (
   <div className={classes.inActiveTextBG}>
-    <div className={classes.whiteText}>
+    <div className={classes.whiteTextInactive}>
       {heroData ? heroData.numberOfFiles : 'NA'}
-      QUERYING
-    </div>
-    <div className={classes.blueText}>
-    multiple Web and
-    </div>
-    <div className={classes.blueText}>
-    API-based filtering
+      {' '}
+FILES
     </div>
   </div>
 );
@@ -91,13 +98,15 @@ const FilesActiveText = ({ classes, heroData }) => (
   <div className={classes.inActiveTextBG}>
     <div className={classes.whiteText}>
       {heroData ? heroData.numberOfFiles : 'NA'}
-      ACTIVE QUERYING
+      {' '}
+      Files
     </div>
     <div className={classes.blueText}>
-    multiple Web and
-    </div>
-    <div className={classes.blueText}>
-    API-based filtering
+  From
+      {' '}
+      {heroData ? heroData.numberOfFileTypes : 'NA'}
+      {' '}
+      File Types
     </div>
   </div>
 );
@@ -105,29 +114,28 @@ const FilesActiveText = ({ classes, heroData }) => (
 const InteractiveHero = ({ classes, heroData }) => {
   const [activeState, setActiveState] = React.useState({
     isActive: '',
-    transformedHorseShoe: FacingUp,
+    transformedHorseShoe: FacingLeft,
   });
   return (
     <div className={classes.animationWrapper}>
-      <div className={classes.casesIcon} onMouseEnter={() => { setActiveState({ isActive: 'cases', transformedHorseShoe: FacingUp }); }}>
+      <div className={classes.casesIcon} onMouseEnter={() => { setActiveState({ isActive: 'cases', transformedHorseShoe: FacingUp }); }} onMouseLeave={() => { setActiveState({ isActive: '', transformedHorseShoe: FacingLeft }); }}>
         <CircularIcon isActive={activeState.isActive === 'cases'} InactiveImage={InActiveCases} activeImage={ActiveCases} />
       </div>
       <div className={classes.casesText}>
         {activeState.isActive === 'cases' ? <CasesActiveText heroData={heroData} classes={classes} /> : <CasesInActiveText heroData={heroData} classes={classes} />}
       </div>
       <HorseShoe transformedHorseShoe={activeState.transformedHorseShoe} />
-
-      <div className={classes.trialsIcon} onMouseEnter={() => { setActiveState({ isActive: 'trials', transformedHorseShoe: FacingRight }); }}>
-        <CircularIcon isActive={activeState.isActive === 'trials'} InactiveImage={InActiveTrials} activeImage={ActiveTrials} />
-      </div>
-      <div className={classes.trialsText}>
-        {activeState.isActive === 'trials' ? <TrialsActiveText heroData={heroData} classes={classes} /> : <TrialsInActiveText heroData={heroData} classes={classes} />}
-      </div>
-      <div className={classes.filesIcon} onMouseEnter={() => { setActiveState({ isActive: 'files', transformedHorseShoe: FacingDown }); }}>
+      <div className={classes.filesIcon} onMouseEnter={() => { setActiveState({ isActive: 'files', transformedHorseShoe: FacingRight }); }} onMouseLeave={() => { setActiveState({ isActive: '', transformedHorseShoe: FacingLeft }); }}>
         <CircularIcon isActive={activeState.isActive === 'files'} InactiveImage={InActiveFiles} activeImage={ActiveFiles} />
       </div>
       <div className={classes.filesText}>
         {activeState.isActive === 'files' ? <FilesActiveText heroData={heroData} classes={classes} /> : <FilesInActiveText heroData={heroData} classes={classes} />}
+      </div>
+      <div className={classes.trialsIcon} onMouseEnter={() => { setActiveState({ isActive: 'trials', transformedHorseShoe: FacingDown }); }} onMouseLeave={() => { setActiveState({ isActive: '', transformedHorseShoe: FacingLeft }); }}>
+        <CircularIcon isActive={activeState.isActive === 'trials'} InactiveImage={InActiveTrials} activeImage={ActiveTrials} />
+      </div>
+      <div className={classes.trialsText}>
+        {activeState.isActive === 'trials' ? <TrialsActiveText heroData={heroData} classes={classes} /> : <TrialsInActiveText heroData={heroData} classes={classes} />}
       </div>
     </div>
   );
@@ -154,17 +162,6 @@ const styles = () => ({
     position: 'absolute',
     marginTop: 16,
   },
-  casesSVG: {
-    position: 'absolute',
-    float: 'left',
-    marginTop: '8px',
-    // width: '100px',
-    left: '180px',
-    color: '#FFFFFF',
-    fontFamily: 'Oswald',
-    fontSize: 16,
-    fontWeight: 500,
-  },
   casesText: {
     position: 'absolute',
     float: 'left',
@@ -183,27 +180,16 @@ const styles = () => ({
     textAlign: 'center',
     // background: `url(${background})`,
   },
-  trialsIcon: {
+  filesIcon: {
     left: '300px',
     position: 'absolute',
     float: 'left',
-    marginTop: '235px',
+    marginTop: '225px',
   },
-  trialsSVG: {
+  filesText: {
     position: 'absolute',
     float: 'left',
-    marginTop: '364px',
-    // width: '100px',
-    left: '370px',
-    color: '#FFFFFF',
-    fontFamily: 'Oswald',
-    fontSize: 16,
-    fontWeight: 500,
-  },
-  trialsText: {
-    position: 'absolute',
-    float: 'left',
-    marginTop: '380px',
+    marginTop: '370px',
     left: '300px',
     width: '150px',
     color: '#FFFFFF',
@@ -211,24 +197,13 @@ const styles = () => ({
     fontSize: 16,
     fontWeight: 500,
   },
-  filesIcon: {
+  trialsIcon: {
     marginTop: '450px',
     position: 'absolute',
     float: 'left',
     left: '60px',
   },
-  filesSVG: {
-    position: 'absolute',
-    float: 'left',
-    marginTop: '430px',
-    // width: '100px',
-    left: '180px',
-    color: '#FFFFFF',
-    fontFamily: 'Oswald',
-    fontSize: 16,
-    fontWeight: 500,
-  },
-  filesText: {
+  trialsText: {
     position: 'absolute',
     float: 'left',
     marginTop: '480px',
@@ -250,6 +225,15 @@ const styles = () => ({
     letterSpacing: 0,
     textAlign: 'center',
   },
+  whiteTextInactive: {
+    color: '#FEFFFF',
+    marginTop: '12px',
+    fontFamily: 'Oswald',
+    fontSize: 18,
+    fontWeight: 600,
+    letterSpacing: 0,
+    textAlign: 'center',
+  },
   blueText: {
     color: '#A8DAF1',
     fontFamily: 'Oswald',
@@ -259,6 +243,7 @@ const styles = () => ({
     textAlign: 'center',
   },
   inActiveTextBG: {
+    minHeight: '70px',
     background: `url(${WhispInActive})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: '100% 100%',
