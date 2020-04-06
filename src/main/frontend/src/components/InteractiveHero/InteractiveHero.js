@@ -63,7 +63,10 @@ const TrialsActiveText = ({ classes, heroData }) => {
   return (
     <div className={classes.inActiveTextBG}>
       <div className={classes.whiteText}>
-Top 2 Diagnosis
+        {heroData ? heroData.numberOfDiagnoses : 'NA'}
+        {' '}
+      DIAGNOSIS
+        <span className={classes.whiteSmallText}>(Top 2 Diagnosis)</span>
       </div>
       <div className={classes.blueText}>
         {sortedDiagnosis[0] && sortedDiagnosis[0].diagnoses}
@@ -208,7 +211,7 @@ const styles = () => ({
     float: 'left',
     marginTop: '480px',
     left: '200px',
-    width: '150px',
+    width: '180px',
     color: '#FFFFFF',
     fontFamily: 'Oswald',
     fontSize: 16,
@@ -222,6 +225,14 @@ const styles = () => ({
     fontFamily: 'Oswald',
     fontSize: 18,
     fontWeight: 600,
+    letterSpacing: 0,
+    textAlign: 'center',
+  },
+  whiteSmallText: {
+    color: '#FEFFFF',
+    fontFamily: 'Oswald',
+    fontSize: 10,
+    fontWeight: 500,
     letterSpacing: 0,
     textAlign: 'center',
   },
