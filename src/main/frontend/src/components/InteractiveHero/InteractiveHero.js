@@ -66,7 +66,7 @@ const TrialsActiveText = ({ classes, heroData }) => {
         {heroData ? heroData.numberOfDiagnoses : 'NA'}
         {' '}
       DIAGNOSIS
-        <span className={classes.whiteSmallText}>(Top 2 Diagnosis)</span>
+        <span className={classes.whiteSmallText}>&nbsp;&nbsp; from Top 2:</span>
       </div>
       <div className={classes.blueText}>
         {sortedDiagnosis[0] && sortedDiagnosis[0].diagnoses}
