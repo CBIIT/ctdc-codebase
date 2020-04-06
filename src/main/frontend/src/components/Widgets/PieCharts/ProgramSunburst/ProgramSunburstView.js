@@ -75,7 +75,7 @@ class ProgramSunburst extends PureComponent {
     this.state = {
       widgetData: data,
       size: data.children[0].size,
-      title: data.children[0].title,
+      title: '',
       caseSize: data.children[0].caseSize,
     };
   }
