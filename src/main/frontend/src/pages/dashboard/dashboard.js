@@ -66,7 +66,7 @@ const Dashboard = ({
                         upperTitle
                         bodyClass={classes.fullHeightBody}
                         className={classes.card}
-                        color="lochmara"
+                        color={theme.palette.lochmara.contrastText}
                         customBackGround
                       >
                         <div className={classes.marginTop18}>
@@ -89,7 +89,7 @@ const Dashboard = ({
                         upperTitle
                         bodyClass={classes.fullHeightBody}
                         className={classes.card}
-                        color="lochmara"
+                        color={theme.palette.lochmara.contrastText}
                         customBackGround
                       >
                         <CustomActiveDonut
@@ -110,7 +110,7 @@ const Dashboard = ({
                         upperTitle
                         bodyClass={classes.fullHeightBody}
                         className={classes.card}
-                        color="lochmara"
+                        color={theme.palette.lochmara.contrastText}
                         customBackGround
                       >
                         <CustomActiveDonut
@@ -134,7 +134,7 @@ const Dashboard = ({
                         upperTitle
                         bodyClass={classes.fullHeightBody}
                         className={classes.card}
-                        color="lochmara"
+                        color={theme.palette.lochmara.contrastText}
                         customBackGround
                       >
                         <CustomActiveDonut
@@ -155,7 +155,7 @@ const Dashboard = ({
                         upperTitle
                         bodyClass={classes.fullHeightBody}
                         className={classes.card}
-                        color="lochmara"
+                        color={theme.palette.lochmara.contrastText}
                         customBackGround
                       >
                         <CustomActiveDonut
@@ -176,7 +176,7 @@ const Dashboard = ({
                         upperTitle
                         bodyClass={classes.fullHeightBody}
                         className={classes.card}
-                        color="lochmara"
+                        color={theme.palette.lochmara.contrastText}
                         customBackGround
                       >
                         <CustomActiveDonut

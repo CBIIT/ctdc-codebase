@@ -20,6 +20,7 @@ const darkenRate = 15;
 const tableHeaderBorder = '#4B619A 3px solid';
 const tableHeaderFontColor = '#004c73';
 const tableFontFamily = "'Lato Regular','Raleway', sans-serif";
+const white = '#FFFFFF';
 
 export default {
   custom: {
@@ -82,7 +83,18 @@ export default {
       dark: tinycolor(lochmara)
         .darken(darkenRate)
         .toHexString(),
-      contrastText: '#FFFFFF',
+      contrastText: 'lochmara',
+      contrastTextColor: '#3478A5',
+    },
+    white: {
+      main: white,
+      light: tinycolor(white)
+        .lighten(white)
+        .toHexString(),
+      dark: tinycolor(white)
+        .darken(white)
+        .toHexString(),
+      contrastText: 'white',
     },
     airForceBlue: {
       main: airForceBlue,

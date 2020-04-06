@@ -53,7 +53,7 @@ function findCaseSizeOfTitle(data, title) {
 
 const styles = (theme) => ({
   title: {
-    color: 'rgb(52, 120, 165)',
+    color: theme.palette.lochmara.contrastTextColor,
     fontSize: '12px',
     maxWidth: '1440px',
     fontFamily: theme.custom.fontFamily,
