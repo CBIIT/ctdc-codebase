@@ -59,7 +59,10 @@ const AboutBody = ({ classes, data }) => {
                 <div className={classes.text}>
                   <img
                     src={MyCasesWizardStep4}
-                    alt="MyCasesWizardStep4"
+                    alt="Step1 - Select and Save to My Cases,
+                    Step2 - Review My Cases,
+                    Step3 - Select Files and Create Manifest,
+                    Step4 - Load Manifest to SBG"
                     className={classes.MyCasesWizardStep4}
                   />
                 </div>
