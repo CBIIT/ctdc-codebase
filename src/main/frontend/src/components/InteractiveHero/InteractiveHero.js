@@ -25,7 +25,7 @@ CASES
 );
 
 const CasesActiveText = ({ classes, heroData }) => (
-  <div className={classes.inActiveTextBG}>
+  <div className={classes.activeTextBG}>
     <div className={classes.whiteText}>
       {heroData ? heroData.numberOfCases : 'NA'}
       {' '}
@@ -62,17 +62,17 @@ const TrialsActiveText = ({ classes, heroData }) => {
   const sortedDiagnosis = heroData.diagnosisCountByArm.sort((a, b) => a.diagnoses > b.diagnoses);
   return (
     <div className={classes.inActiveTextBG}>
-      <div className={classes.blueText}>
+      <div className={classes.whiteText}>
 Top 2 Diagnosis
       </div>
-      <div className={classes.whiteText}>
+      <div className={classes.blueText}>
         {sortedDiagnosis[0] && sortedDiagnosis[0].diagnoses}
         {' '}
 Diagnoses from
         {' '}
         {sortedDiagnosis[0] && sortedDiagnosis[0].arm_id}
       </div>
-      <div className={classes.whiteText}>
+      <div className={classes.blueText}>
         {sortedDiagnosis[1] && sortedDiagnosis[1].diagnoses}
         {' '}
 Diagnoses from
@@ -156,7 +156,7 @@ const styles = () => ({
     },
   },
   casesIcon: {
-    left: 52,
+    left: '48px',
     float: 'left',
     width: 100,
     position: 'absolute',
@@ -166,8 +166,8 @@ const styles = () => ({
     position: 'absolute',
     float: 'left',
     marginTop: '52px',
-    width: '180px',
-    left: '172px',
+    left: '200px',
+    width: '150px',
     // color: '#FFFFFF',
     // fontFamily: 'Oswald',
     // fontSize: 16,
@@ -201,7 +201,7 @@ const styles = () => ({
     marginTop: '450px',
     position: 'absolute',
     float: 'left',
-    left: '60px',
+    left: '48px',
   },
   trialsText: {
     position: 'absolute',
@@ -227,7 +227,6 @@ const styles = () => ({
   },
   whiteTextInactive: {
     color: '#FEFFFF',
-    marginTop: '12px',
     fontFamily: 'Oswald',
     fontSize: 18,
     fontWeight: 600,
@@ -243,7 +242,13 @@ const styles = () => ({
     textAlign: 'center',
   },
   inActiveTextBG: {
-    minHeight: '70px',
+    background: `url(${WhispInActive})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: '100% 100%',
+    paddingTop: '10px',
+    paddingBottom: '10px',
+  },
+  activeTextBG: {
     background: `url(${WhispInActive})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: '100% 100%',
