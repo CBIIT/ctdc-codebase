@@ -3,49 +3,91 @@ import { withStyles } from '@material-ui/core';
 
 const AttributeComponent = ({ classes, data }) => (
   <div className={classes.sectionContent} id={data.row[0].charAt(0).toUpperCase()}>
-    <p>
-      <span className={classes.attrTitle}>Attribute Name:</span>
-      {data.row[0]}
-    </p>
-    <p>
-      <span className={classes.attrTitle}>Description:</span>
-      {data.row[1]}
-    </p>
-    <p>
-      <span className={classes.attrTitle}>ATTRIBUTE OF NODE/RELATIONSHIP:</span>
-      {data.row[2]}
-    </p>
-    <p>
-      <span className={classes.attrTitle}>Display Name:</span>
-      {data.row[3]}
-    </p>
-    <p>
-      <span className={classes.attrTitle}>Required:</span>
-      {data.row[4]}
-    </p>
-    <p>
-      <span className={classes.attrTitle}>Type:</span>
-      {data.row[5]}
-    </p>
-    <p>
-      <span className={classes.attrTitle}>Constraints:</span>
-      {data.row[6]}
-    </p>
-    <p>
-      <span className={classes.attrTitle}>Enumeration:</span>
-      {data.row[7]}
-    </p>
+    <div className={classes.attributeContent}>
+      Attribute Name:
+      <span className={classes.attrDesc}>
+      &nbsp;
+        {data.row[0]}
+      </span>
+    </div>
+    <div className={classes.attributeContent}>
+    Display Name:
+      <span className={classes.boldAttrDesc}>
+      &nbsp;
+        {data.row[3]}
+      </span>
+    </div>
+    <div className={classes.attributeContent}>
+      Description:
+      <span className={classes.attrDesc}>
+      &nbsp;
+        {data.row[1]}
+      </span>
+    </div>
+    <div className={classes.attributeContent}>
+      Attribute OF Node:
+      <span className={classes.attrDesc}>
+      &nbsp;
+        {data.row[2]}
+      </span>
+    </div>
+    <div className={classes.attributeContent}>
+      Required:
+      <span className={classes.attrDesc}>
+      &nbsp;
+        {data.row[4]}
+      </span>
+    </div>
+    <div className={classes.attributeContent}>
+      Type:
+      <span className={classes.attrDesc}>
+      &nbsp;
+        {data.row[5]}
+      </span>
+    </div>
+    <div className={classes.attributeContent}>
+      Constraints:
+      <span className={classes.attrDesc}>
+      &nbsp;
+        {data.row[6]}
+      </span>
+    </div>
+    <div className={classes.attributeContent}>
+      Enumeration:
+      <span className={classes.attrDesc}>
+      &nbsp;
+        {data.row[7]}
+      </span>
+    </div>
   </div>
 );
 const styles = () => ({
   sectionContent: {
     padding: '12px',
+    '&:nth-child(even)': {
+      backgroundColor: '#EEF6FD',
+    },
   },
-  attrTitle: {
+  attrDesc: {
+    color: '#000',
+    fontFamily: 'Lato',
+    fontSize: '14px',
+    fontWeight: 'normal',
+  },
+  attributeContent: {
     color: '#2C9FCA',
     fontFamily: 'Lato',
-    fontSize: 14,
+    fontSize: '14px',
+    padding: '2px',
     fontWeight: 'bold',
+    lineHeight: '1.5em',
+  },
+  boldAttrDesc: {
+    color: '#000',
+    fontFamily: 'Lato',
+    fontSize: '16px',
+    fontWeight: 'bold',
+    lineHeight: '1.5em',
   },
 });
 

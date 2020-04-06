@@ -138,6 +138,26 @@ nodeTypeRelationShipTable:
       - "metastatic_site"
       - "case"
       - "many_to_many"
+documentConventionsTitle: "Descriptors for Each Attribute"
+documentConventionsDescription: "An interventional clinical research study that is represented within the CTDC, in terms of its design, data and key results. "
+documentConventions:
+  - attributeName: "Attribute Name - "
+    attributeConventions: "name of the attribute."
+  - attributeName: "Definition - "
+    attributeConventions: "a concise description of the attribute."
+  - attributeName: "Attribute of Node/Relationship - "
+    attributeConventions: "the parent node or relationship type of attribute."
+  - attributeName: "Display Name - "
+    attributeConventions: "the display name of attribute on CTDC user interface. Display names are printed for only those attributes that are in the current version of the user interface. Note: all attributes listed below are available via CTDC’s GraphQL API."
+  - attributeName: "Required - "
+    attributeConventions: "a true/false label that indicates if attribute is a required field for CTDC data submitters."
+  - attributeName: "Type - "
+    attributeConventions: "the data type of the attribute (string, integer, number, boolean)."
+  - attributeName: "Constraints - "
+    attributeConventions: "rules enforced on attribute values."
+  - attributeName: "Enumeration - "
+    attributeConventions: "If applicable, the list of possible values for the attribute"
+
 attribute:
   - row:
     - "case"

@@ -74,17 +74,31 @@ const AboutBody = ({ classes, data }) => (
       <Divider variant="middle" classes={{ root: classes.dividerRoot }} />
       <div className={classes.sectionContainer}>
         <div className={classes.sectionTitle}>Document Conventions</div>
-        <div className={classes.nodeTypeTitle}>Descriptors for Each Attribute</div>
-        <div className={classes.nodeTypeDesc}>An interventional clinical r</div>
+        <div className={classes.nodeTypeTitle}>{data.documentConventionsTitle}</div>
+        <div className={classes.nodeTypeDesc}>{data.documentConventionsDescription}</div>
+        {data.documentConventions
+                && (data.documentConventions.map((sublist) => (
+                  <div className={classes.nodeTypeSubListContainer}>
+                    <div className={classes.nodeTypeTitle}>
+                      {sublist.attributeName}
+                      <span className={classes.nodeTypeDesc}>{sublist.attributeConventions}</span>
+                    </div>
+                  </div>
+                ))
+                )}
       </div>
-      <Divider variant="middle" classes={{ root: classes.dividerRoot }} />
-      <Navbar />
-      <div className={classes.sectionContainer}>
-        {data.attribute ? data.attribute.map((row) => (
-          <Section
-            data={row}
-          />
-        )) : ''}
+    </div>
+    <div className={classes.attributeSectionContainer}>
+      <div className={classes.container}>
+        <Navbar />
+        <Divider variant="middle" classes={{ root: classes.dividerRoot }} />
+        <div className={classes.sectionContainer}>
+          {data.attribute ? data.attribute.map((row) => (
+            <Section
+              data={row}
+            />
+          )) : ''}
+        </div>
       </div>
       <Divider variant="middle" classes={{ root: classes.dividerRoot }} />
     </div>
@@ -104,7 +118,7 @@ const styles = (theme) => ({
   },
   dividerRoot: {
     backgroundColor: '#B0CFE1',
-    height: '2px',
+    height: '3px',
   },
   introText: {
     color: '#1C849A',
@@ -156,6 +170,7 @@ const styles = (theme) => ({
   },
   nodeTypeSubListContainer: {
     marginLeft: '80px',
+    padding: '10px',
   },
   tableDiv: {
     marginTop: '45px',
@@ -192,6 +207,9 @@ const styles = (theme) => ({
     borderSpacing: '0',
     borderCollapse: 'collapse',
     fontWeight: 'bolder',
+  },
+  attributeSectionContainer: {
+    background: 'white',
   },
 });
 
