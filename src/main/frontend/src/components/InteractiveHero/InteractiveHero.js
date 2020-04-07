@@ -231,7 +231,7 @@ const styles = () => ({
   whiteSmallText: {
     color: '#FEFFFF',
     fontFamily: 'Oswald',
-    fontSize: 10,
+    fontSize: 12,
     fontWeight: 500,
     letterSpacing: 0,
     textAlign: 'center',
