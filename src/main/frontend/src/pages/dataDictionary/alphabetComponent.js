@@ -8,18 +8,21 @@ const AlphabetComponent = ({ classes, alphabetsData }) => (
     <span className={classes.alphabetText}>
       {alphabetsData && alphabetsData.map((alphabetNode) => (
         alphabetNode.status ? (
-          <Link
-            activeClass={{ color: 'yellow' }}
-            to={alphabetNode.alphabet}
-            spy
-            smooth
-            offset={-180}
-            duration={500}
-          >
-               |&nbsp;
-            <span className={classes.alphabetExists}>{alphabetNode.alphabet}</span>
+          <span>
+|&nbsp;
+            <Link
+              activeClass={classes.activeLink}
+              to={alphabetNode.alphabet}
+              spy
+              smooth
+              offset={-180}
+              duration={500}
+            >
+
+              <span className={classes.alphabetExists}>{alphabetNode.alphabet}</span>
+            </Link>
 &nbsp;
-          </Link>
+          </span>
         ) : (
           <span>
 |&nbsp;
@@ -36,11 +39,16 @@ const styles = () => ({
     display: 'inline',
     color: '#2F2F2F',
     fontFamily: 'Lato',
-    fontSize: 21,
+    letterSpacing: '1px',
+    fontSize: '21px',
     fontWeight: 'bold',
   },
   alphabetText: {
     paddingLeft: '32px',
+    letterSpacing: '1px',
+    fontFamily: 'Poppins Regular',
+    fontSize: '14px',
+    color: '#929292',
   },
   alphabetContainer: {
     paddingTop: '32px',
@@ -49,6 +57,16 @@ const styles = () => ({
   },
   alphabetExists: {
     textDecoration: 'underline',
+    color: '#06849E',
+    '&:hover': {
+      cursor: 'pointer',
+      fontFamily: 'Poppins Bold',
+      textDecoration: 'none',
+    },
+  },
+  activeLink: {
+    fontFamily: 'Poppins Bold',
+    background: '#28cde5',
   },
 });
 

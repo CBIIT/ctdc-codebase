@@ -103,32 +103,44 @@ const DataDictonaryView = ({ classes, data }) => {
           ))}
 
           {data.nodeTypeRelationShipTable && (
-          <div className={classes.tableDiv}>
-            <table className={classes.table}>
-              <thead className={classes.tableHeader}>
-                <tr className={classes.tableBodyRow}>
-                  <th className={classes.headerCell} aria-label="Index" />
-                  { data.nodeTypeRelationShipTable[0].head.map((rowObj) => (
+          <>
+            <div className={classes.tableNoteContainer}>
+              <span className={classes.tableBoldNote}>
+              Figure 1.0. Relationships among CTDC node types.
+              </span>
+              <span className={classes.tableRegNote}>
+Listed are relationships that connect node types in the CTDC
+           conceptual data model, the source and destination nodes for each relationship, and the
+            multiplicity of each relationship.
+              </span>
+            </div>
+            <div className={classes.tableDiv}>
+              <table className={classes.table}>
+                <thead className={classes.tableHeader}>
+                  <tr className={classes.tableBodyRow}>
+                    <th className={classes.headerCell} aria-label="Index" />
+                    { data.nodeTypeRelationShipTable[0].head.map((rowObj) => (
+                      <>
+                        <th className={classes.headerCell}>{rowObj}</th>
+                      </>
+                    )) }
+                  </tr>
+                </thead>
+                <tbody>
+                  { data.nodeTypeRelationShipTable[1].body.map((rowObj, index) => (
                     <>
-                      <th className={classes.headerCell}>{rowObj}</th>
+                      <tr className={classes.tableBodyRow}>
+                        <td className={classes.tableCell}>{index + 1}</td>
+                        { rowObj.row.map(
+                          (rowValue) => <td className={classes.tableCell}>{rowValue}</td>,
+                        )}
+                      </tr>
                     </>
                   )) }
-                </tr>
-              </thead>
-              <tbody>
-                { data.nodeTypeRelationShipTable[1].body.map((rowObj, index) => (
-                  <>
-                    <tr className={classes.tableBodyRow}>
-                      <td className={classes.tableCell}>{index + 1}</td>
-                      { rowObj.row.map(
-                        (rowValue) => <td className={classes.tableCell}>{rowValue}</td>,
-                      )}
-                    </tr>
-                  </>
-                )) }
-              </tbody>
-            </table>
-          </div>
+                </tbody>
+              </table>
+            </div>
+          </>
           )}
 
         </div>
@@ -137,6 +149,7 @@ const DataDictonaryView = ({ classes, data }) => {
           <div className={classes.sectionTitle}>Document Conventions</div>
           <div className={classes.nodeTypeTitle}>{data.documentConventionsTitle}</div>
           <div className={classes.nodeTypeDesc}>{data.documentConventionsDescription}</div>
+          <div className={classes.marginBottom} />
           {data.documentConventions
                 && (data.documentConventions.map((sublist) => (
                   <div className={classes.nodeTypeSubListContainer}>
@@ -197,7 +210,6 @@ const styles = (theme) => ({
     color: '#1C849A',
     fontFamily: 'Raleway',
     fontSize: '1em',
-    fontWeight: 500,
     lineHeight: '2em',
   },
   sectionTitle: {
@@ -207,6 +219,7 @@ const styles = (theme) => ({
     fontSize: 21,
     fontWeight: 'bold',
     textTransform: 'uppercase',
+    letterSpacing: 1,
   },
   nodeTypeTitle: {
     color: '#358DBA',
@@ -246,7 +259,7 @@ const styles = (theme) => ({
     color: '#fff',
     fontWeight: 700,
     textAlign: 'center',
-    fontFamily: 'Lato',
+    fontFamily: 'Oswald Semibold',
   },
   nodeTypeTextContainer: {
     marginLeft: '50px',
@@ -260,7 +273,8 @@ const styles = (theme) => ({
     padding: '10px',
   },
   tableDiv: {
-    marginTop: '45px',
+    marginLeft: '58px',
+    marginTop: '18px',
   },
   table: {
     borderSpacing: '0',
@@ -311,6 +325,23 @@ const styles = (theme) => ({
   scrollUp: {
     height: 60,
     width: 60,
+  },
+  marginBottom: {
+    marginBottom: '10px',
+  },
+  tableBoldNote: {
+    color: '#0B3556',
+    fontWeight: 'bold',
+  },
+  tableRegNote: {
+    color: '#000000',
+    fontFamily: theme.custom.fontFamily,
+    fontSize: '15px',
+    lineHeight: '22px',
+  },
+  tableNoteContainer: {
+    marginLeft: '58px',
+    marginTop: '18px',
   },
 });
 

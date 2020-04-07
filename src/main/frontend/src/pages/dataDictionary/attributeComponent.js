@@ -25,7 +25,7 @@ const AttributeComponent = ({ classes, data }) => (
       </span>
     </div>
     <div className={classes.attributeContent}>
-      Attribute OF Node:
+      Attribute of Node:
       <span className={classes.attrDesc}>
       &nbsp;
         {data.row[2]}
