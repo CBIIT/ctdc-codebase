@@ -39,11 +39,10 @@ const AlphabetComponent = ({ classes, alphabetsData }) => (
 const styles = () => ({
   dictText: {
     display: 'inline',
-    color: '#358DBA',
+    color: '#71959f',
     fontFamily: 'Lato',
     letterSpacing: '1px',
-    fontSize: '21px',
-    fontWeight: 'bold',
+    fontSize: '17px',
   },
   alphabetText: {
     paddingLeft: '32px',

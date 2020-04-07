@@ -109,7 +109,7 @@ const DataDictonaryView = ({ classes, data }) => {
           <>
             <div className={classes.tableNoteContainer}>
               <span className={classes.tableBoldNote}>
-              Figure 1.0. Relationships among CTDC node types.
+              Figure 1.0. Relationships among CTDC node types.&nbsp;
               </span>
               <span className={classes.tableRegNote}>
 Listed are relationships that connect node types in the CTDC
@@ -232,6 +232,7 @@ const styles = (theme) => ({
   nodeTypeTitle: {
     color: '#358DBA',
     fontFamily: 'Lato',
+    paddingTop: '2.5px',
     fontSize: 21,
     fontWeight: 'bold',
   },
@@ -262,12 +263,12 @@ const styles = (theme) => ({
     borderRadius: '50%',
     width: 36,
     height: 36,
-    padding: 8,
+    paddingTop: '5px',
     background: '#3FB0D5',
     color: '#fff',
-    fontWeight: 700,
+    fontWeight: 600,
     textAlign: 'center',
-    fontFamily: 'Oswald Semibold',
+    fontFamily: 'Oswald',
   },
   nodeTypeTextContainer: {
     marginLeft: '50px',
@@ -340,6 +341,7 @@ const styles = (theme) => ({
   tableBoldNote: {
     color: '#0B3556',
     fontWeight: 'bold',
+    fontFamily: 'sans-serif',
   },
   tableRegNote: {
     color: '#000000',
