@@ -4,40 +4,42 @@ import { withStyles } from '@material-ui/core';
 
 const AlphabetComponent = ({ classes, alphabetsData }) => (
   <div className={classes.alphabetContainer}>
-    <div className={classes.dictText}>DATA DICTIONARY</div>
-    <span className={classes.alphabetText}>
-      {alphabetsData && alphabetsData.map((alphabetNode) => (
-        alphabetNode.status ? (
-          <span>
+    <div className={classes.centerContent}>
+      <div className={classes.dictText}>DATA&nbsp;DICTIONARY</div>
+      <span className={classes.alphabetText}>
+        {alphabetsData && alphabetsData.map((alphabetNode) => (
+          alphabetNode.status ? (
+            <span>
 |&nbsp;
-            <Link
-              activeClass={classes.activeLink}
-              to={alphabetNode.alphabet}
-              spy
-              smooth
-              offset={-180}
-              duration={500}
-            >
+              <Link
+                activeClass={classes.activeLink}
+                to={alphabetNode.alphabet}
+                spy
+                smooth
+                offset={-180}
+                duration={500}
+              >
 
-              <span className={classes.alphabetExists}>{alphabetNode.alphabet}</span>
-            </Link>
+                <span className={classes.alphabetExists}>{alphabetNode.alphabet}</span>
+              </Link>
 &nbsp;
-          </span>
-        ) : (
-          <span>
+            </span>
+          ) : (
+            <span>
 |&nbsp;
-            {alphabetNode.alphabet}
+              {alphabetNode.alphabet}
 &nbsp;
-          </span>
-        )))}
+            </span>
+          )))}
 
-    </span>
+      </span>
+    </div>
   </div>
 );
 const styles = () => ({
   dictText: {
     display: 'inline',
-    color: '#2F2F2F',
+    color: '#358DBA',
     fontFamily: 'Lato',
     letterSpacing: '1px',
     fontSize: '21px',
@@ -45,27 +47,40 @@ const styles = () => ({
   },
   alphabetText: {
     paddingLeft: '32px',
-    letterSpacing: '1px',
-    fontFamily: 'Poppins Regular',
+    letterSpacing: '1.5px',
+    fontFamily: 'Poppins',
     fontSize: '14px',
     color: '#929292',
+    display: 'block',
+    '@media (min-width: 1000px)': {
+      display: 'inline',
+    },
   },
   alphabetContainer: {
-    paddingTop: '32px',
-    paddingBottom: '32px',
-    paddingLeft: '32px',
+    padding: '32px',
+  },
+  centerContent: {
+    maxWidth: '950px',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    textAlign: 'center',
+    background: 'white',
+    borderRadius: '18px',
+    lineHeight: '2em',
   },
   alphabetExists: {
     textDecoration: 'underline',
     color: '#06849E',
     '&:hover': {
       cursor: 'pointer',
-      fontFamily: 'Poppins Bold',
+      fontFamily: 'Poppins',
+      fontWeight: 'bold',
       textDecoration: 'none',
     },
   },
   activeLink: {
-    fontFamily: 'Poppins Bold',
+    fontFamily: 'Poppins',
+    fontWeight: 'bold',
     background: '#28cde5',
   },
 });

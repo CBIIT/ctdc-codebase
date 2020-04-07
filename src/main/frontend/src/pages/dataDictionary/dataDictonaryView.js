@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { animateScroll as scroll } from 'react-scroll';
 import { withStyles, Divider } from '@material-ui/core';
-import scrollUp from '../../assets/icons/Scroll_Up_Button.svg';
+import scrollUp from '../../assets/icons/ScrollUpButton.svg';
+import scrollUpHover from '../../assets/icons/ScrollUpHoverButton.svg';
+
 import AboutHeader from '../about/aboutHeaderView';
 import Stats from '../../components/Stats/AllStatsController';
 import AlphabetBar from './alphabetComponent';
@@ -10,6 +12,7 @@ import Section from './attributeComponent';
 const DataDictonaryView = ({ classes, data }) => {
   const prevScrollY = useRef(0);
 
+  const [scrollUpHovered, setScrollUpHovered] = useState(false);
   const [scrollingDown, setScrollingDown] = useState(false);
 
   useEffect(() => {
@@ -178,10 +181,15 @@ Listed are relationships that connect node types in the CTDC
         </div>
         <Divider variant="middle" classes={{ root: classes.dividerRoot }} />
         {scrollingDown && (
-        <div className={classes.scrollUpContainer} onClick={scrollToTop}>
+        <div
+          className={classes.scrollUpContainer}
+          onClick={scrollToTop}
+          onMouseEnter={() => setScrollUpHovered(true)}
+          onMouseLeave={() => setScrollUpHovered(false)}
+        >
           <img
             className={classes.scrollUp}
-            src={scrollUp}
+            src={scrollUpHovered ? scrollUpHover : scrollUp}
             alt="scrol to top"
           />
         </div>
