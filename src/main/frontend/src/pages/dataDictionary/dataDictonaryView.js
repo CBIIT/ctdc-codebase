@@ -351,7 +351,7 @@ const styles = (theme) => ({
   },
   tableNoteContainer: {
     marginLeft: '58px',
-    marginTop: '18px',
+    marginTop: '24px',
   },
 });
 
