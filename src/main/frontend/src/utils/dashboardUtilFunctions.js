@@ -17,11 +17,11 @@ export const COLORS_LEVEL_1 = [
 ];
 
 export const COLORS_LEVEL_2 = [
-  '#6ac6b6',
-  '#8b5996',
-  '#2b69a3',
+  '#302059',
+  '#007ea5',
+  '#fdb915',
   '#287d6d',
-  '#af66ff',
+  '#302059',
 ];
 
 
@@ -119,9 +119,10 @@ export function getSunburstDataFromDashboardData(data) {
           return armID;
         }); // end find arm
         if (!existArm) { // new arm
+          colorIndex += 1;
           trial.children.push({
             title: `${trial.title} : ${d.arm_id}`,
-            color: COLORS_LEVEL_2[trial.children.length % COLORS_LEVEL_2.length],
+            color: COLORS_LEVEL_2[parseInt(colorIndex, 10)],
             size: 1,
             caseSize: 1,
           });
@@ -130,10 +131,12 @@ export function getSunburstDataFromDashboardData(data) {
       return trial;
     }); // end find Trial
 
+
     if (!existTrial && !existArm) {
+      colorIndex += 1;
       widgetData.push({
         title: d.clinical_trial_code,
-        color: COLORS_LEVEL_1[parseInt(colorIndex, 10)],
+        color: COLORS_LEVEL_2[parseInt(colorIndex - 1, 10)],
         caseSize: 1,
         children: [{
           title: `${d.clinical_trial_code} : ${d.arm_id}`,
@@ -142,14 +145,13 @@ export function getSunburstDataFromDashboardData(data) {
           caseSize: 1,
         }],
       });
-      colorIndex += 1;
     }
   }); // end foreach
 
   return ({
     key: uuid.v1(),
     title: 'root',
-    color: COLORS_LEVEL_1[parseInt(colorIndex, 10)],
+    color: COLORS_LEVEL_2[parseInt(colorIndex, 10)],
     children: widgetData,
   });
 }
