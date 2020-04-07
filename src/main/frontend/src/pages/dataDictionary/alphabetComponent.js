@@ -1,45 +1,54 @@
-/* eslint-disable */
-
 import React from 'react';
-import { Link, animateScroll as scroll } from "react-scroll";
+import { Link } from 'react-scroll';
 import { withStyles } from '@material-ui/core';
 
-
-const alpahabets = ['A','B','C','D','E', 'F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];// 61 bytes
-
-const AlphabetComponent = ({ classes }) => (
+const AlphabetComponent = ({ classes, alphabetsData }) => (
   <div className={classes.alphabetContainer}>
-<div className={classes.dictText}>DATA DICTIONARY</div>
-        <span className={classes.alphabetText}>
-          {alpahabets && alpahabets.map((alpahabet)=>(<Link
-                activeClass="active"
-                to={alpahabet}
-                spy
-                smooth
-                offset={-70}
-                duration={500}
-              >
-               |&nbsp;{alpahabet}&nbsp;
-              </Link>))}
-        
-        </span>
-        </div>
+    <div className={classes.dictText}>DATA DICTIONARY</div>
+    <span className={classes.alphabetText}>
+      {alphabetsData && alphabetsData.map((alphabetNode) => (
+        alphabetNode.status ? (
+          <Link
+            activeClass={{ color: 'yellow' }}
+            to={alphabetNode.alphabet}
+            spy
+            smooth
+            offset={-180}
+            duration={500}
+          >
+               |&nbsp;
+            <span className={classes.alphabetExists}>{alphabetNode.alphabet}</span>
+&nbsp;
+          </Link>
+        ) : (
+          <span>
+|&nbsp;
+            {alphabetNode.alphabet}
+&nbsp;
+          </span>
+        )))}
+
+    </span>
+  </div>
 );
 const styles = () => ({
-  dictText:{
+  dictText: {
     display: 'inline',
     color: '#2F2F2F',
     fontFamily: 'Lato',
     fontSize: 21,
     fontWeight: 'bold',
   },
-  alphabetText:{
+  alphabetText: {
     paddingLeft: '32px',
   },
-  alphabetContainer:{
+  alphabetContainer: {
     paddingTop: '32px',
     paddingBottom: '32px',
     paddingLeft: '32px',
+  },
+  alphabetExists: {
+    textDecoration: 'underline',
   },
 });
 
