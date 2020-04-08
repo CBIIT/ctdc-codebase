@@ -109,7 +109,7 @@ const DataDictonaryView = ({ classes, data }) => {
           <>
             <div className={classes.tableNoteContainer}>
               <span className={classes.tableBoldNote}>
-              Figure 1.0. Relationships among CTDC node types.&nbsp;
+              Table 1.0. Relationships among CTDC node types.&nbsp;
               </span>
               <span className={classes.tableRegNote}>
 Listed are relationships that connect node types in the CTDC

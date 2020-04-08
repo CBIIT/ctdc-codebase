@@ -102,7 +102,7 @@ const FilesActiveText = ({ classes, heroData }) => (
     <div className={classes.whiteText}>
       {heroData ? heroData.numberOfFiles : 'NA'}
       {' '}
-      Files
+      FILES
     </div>
     <div className={classes.blueText}>
   From
