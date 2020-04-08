@@ -10,6 +10,7 @@ const AttributeComponent = ({ classes, data }) => (
         {data.row[0]}
       </span>
     </div>
+    {data.row[3] !== '' && (
     <div className={classes.attributeContent}>
     Display Name:
       <span className={classes.boldAttrDesc}>
@@ -17,6 +18,7 @@ const AttributeComponent = ({ classes, data }) => (
         {data.row[3]}
       </span>
     </div>
+    )}
     <div className={classes.attributeContent}>
       Description:
       <span className={classes.attrDesc}>
@@ -85,7 +87,7 @@ const styles = () => ({
   boldAttrDesc: {
     color: ' #022B43',
     fontFamily: 'Raleway',
-    fontSize: '18px',
+    fontSize: '17px',
     fontWeight: 'bold',
     lineHeight: '1.5em',
   },
