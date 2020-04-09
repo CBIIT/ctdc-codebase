@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import yaml from 'js-yaml';
 import axios from 'axios';
-import YAMLData from './content.yaml';
+import YAMLData from '../../content/stg/aboutPagesContent.yaml';
 import DataDictBody from './dataDictonaryView';
+
+const ABOUT_CONTENT_URL = process.env.REACT_APP_ABOUT_CONTENT_URL;
 
 const About = () => {
   const [data, setData] = useState([]);
@@ -12,16 +14,24 @@ const About = () => {
     const fetchData = async () => {
       let resultData = [];
       let result = [];
-      result = await axios.get(YAMLData);
-      resultData = yaml.safeLoad(result.data);
-      setData(resultData);
+      try {
+        result = await axios.get(ABOUT_CONTENT_URL);
+        resultData = yaml.safeLoad(result.data);
+      } catch (error) {
+        result = await axios.get(YAMLData);
+        resultData = yaml.safeLoad(result.data);
+      }
+
+      const supportObj = resultData.find(({ page }) => page === '/data-dictionary');
+
+      setData(supportObj);
     };
     fetchData();
   }, []);
 
   return (
     <>
-      <DataDictBody data={data} />
+      <DataDictBody data={data.content} />
     </>
   );
 };
