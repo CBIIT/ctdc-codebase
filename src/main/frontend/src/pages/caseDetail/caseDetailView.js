@@ -514,6 +514,7 @@ const styles = (theme) => ({
   detailContainerItems: {
     paddingTop: '5px',
     paddingLeft: '17px',
+    paddingRight: '16px',
   },
   title: {
     color: '#9d9d9c',
