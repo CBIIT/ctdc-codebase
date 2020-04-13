@@ -117,7 +117,7 @@ checkBrowsers(paths.appPath, isInteractive)
       );
     },
     (err) => {
-      // eslint-disable-next-line no-console
+      /* eslint no-console: ["error", { allow: ["warn", "error"] }] */
       console.error(chalk.red('Failed to compile.\n'));
       printBuildError(err);
       process.exit(1);
