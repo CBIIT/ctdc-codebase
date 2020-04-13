@@ -1,6 +1,6 @@
 'use strict';
 
- /* eslint no-console: ["error", { allow: ["warn", "error"] }] */
+/* eslint no-console: ["error", { allow: ["warn", "error"] }] */
 
 
 // Do this as the first thing so that any code reading it knows the right env.
