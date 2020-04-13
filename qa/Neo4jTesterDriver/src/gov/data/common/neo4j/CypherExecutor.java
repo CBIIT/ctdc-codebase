@@ -90,15 +90,16 @@ public class CypherExecutor {
 	            } );
 			 
 		 	 driver.close();
-		 	 return output;
+		 	
 	        }catch(Exception e ) {
 	        	System.out.print(e.getMessage());
 	        	
 	        	messages.add(e.getMessage());
 	        
-	        }finally{
-	    		 return output;
 	        }
+
+	        return output;
+	        
 		 
 	 }
 	
@@ -172,7 +173,7 @@ public class CypherExecutor {
 						 // fill cell with  value 
 						 cell.setCellValue(m.getValue().toString().replace("\"", ""));
 						 recordIndex++;
-					 }
+					 };
 				 };
 				
 			 }
@@ -182,16 +183,7 @@ public class CypherExecutor {
 		 
 		 
 		 
-		 // given sheet name
-		 Sheet infoSheet = workbook.createSheet("Message");
-		 // create header row
-		 int messageIndex = 0 ;
-		 for(String message : messages) {
-			 Row row = infoSheet.createRow(messageIndex);
-			 Cell cell = row.createCell(0);
-			 cell.setCellValue(message.replace("\"", ""));
-			 messageIndex++;
-		 }
+		
 		
 		 
 		// Save as file
@@ -208,6 +200,19 @@ public class CypherExecutor {
 			e.printStackTrace();
 		}
 		
+	 }
+
+	 public private test(Workbook workbook){
+	 	 // given sheet name
+		 Sheet infoSheet = workbook.createSheet("Message");
+		 // create header row
+		 int messageIndex = 0 ;
+		 for(String message : messages) {
+			 Row row = infoSheet.createRow(messageIndex);
+			 Cell cell = row.createCell(0);
+			 cell.setCellValue(message.replace("\"", ""));
+			 messageIndex++;
+		 }
 	 }
 	 
 	 public static void main (String[] args) {
