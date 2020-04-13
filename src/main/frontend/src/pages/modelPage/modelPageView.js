@@ -158,8 +158,8 @@ const styles = () => ({
     border: '2px solid #0296C9',
     borderRadius: '23px',
     marginBottom: '20px',
-    height: '800px',
-    maxHeight: '800px',
+    height: '1150px',
+    maxHeight: '1150px',
     overflow: 'hidden',
     '& .react-transform-element': {
       display: '-webkit-box !important',
