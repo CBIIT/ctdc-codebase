@@ -81,6 +81,7 @@ checkBrowsers(paths.appPath, isInteractive)
   .then(
     ({ stats, previousFileSizes, warnings }) => {
       if (warnings.length) {
+        /* eslint no-console: "error" */
         console.warn(chalk.yellow('Compiled with warnings.\n'));
         console.warn(warnings.join('\n\n'));
         console.warn(
@@ -116,6 +117,7 @@ checkBrowsers(paths.appPath, isInteractive)
       );
     },
     (err) => {
+      /* eslint no-console: "error" */
       console.error(chalk.red('Failed to compile.\n'));
       printBuildError(err);
       process.exit(1);
@@ -123,6 +125,7 @@ checkBrowsers(paths.appPath, isInteractive)
   )
   .catch((err) => {
     if (err && err.message) {
+      /* eslint no-console: "error" */
       console.error(err.message);
     }
     process.exit(1);
