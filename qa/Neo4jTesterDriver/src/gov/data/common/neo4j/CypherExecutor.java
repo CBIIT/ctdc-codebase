@@ -189,7 +189,7 @@ public class CypherExecutor {
 		 for(String message : messages) {
 			 Row row = infoSheet.createRow(messageIndex);
 			 Cell cell = row.createCell(0);
-			 cell.setCellValue(message.toString().replace("\"", ""));
+			 cell.setCellValue(message.replace("\"", ""));
 			 messageIndex++;
 		 }
 		
