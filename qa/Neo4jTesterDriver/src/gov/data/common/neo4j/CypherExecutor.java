@@ -173,8 +173,8 @@ public class CypherExecutor {
 						 // fill cell with  value 
 						 cell.setCellValue(m.getValue().toString().replace("\"", ""));
 						 recordIndex++;
-					 };
-				 };
+					 }
+				 }
 			 }
 		 }
 
