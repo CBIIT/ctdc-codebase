@@ -71,7 +71,7 @@ const LandingController = ({ classes, heroData }) => (
                   <img src={iconAbout} className={classes.iconAbout} alt="CTDC about icon" />
                 </div>
                 <div className={classes.aboutButtonRight}>
-                  <Link to="/purpose" className={classes.aboutButton}>EXPLORE</Link>
+                  <Link to="/purpose" className={classes.aboutButton}>READ MORE</Link>
                 </div>
               </div>
             </div>
@@ -117,7 +117,7 @@ const LandingController = ({ classes, heroData }) => (
                     {' '}
                   </div>
                   <div className={classes.blueButtonRight}>
-                    <Link to="/request-access" className={classes.blueButton}>EXPLORE</Link>
+                    <Link to="/request-access" className={classes.blueButton}>READ MORE</Link>
                   </div>
                 </div>
               </div>
