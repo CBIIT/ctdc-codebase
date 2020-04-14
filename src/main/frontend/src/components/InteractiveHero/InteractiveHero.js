@@ -53,7 +53,7 @@ const TrialsInActiveText = ({ classes, heroData }) => (
     <div className={classes.whiteTextInactive}>
       {heroData ? heroData.numberOfDiagnoses : 'NA'}
       {' '}
-      DIAGNOSIS
+      DIAGNOSES
     </div>
   </div>
 );
@@ -65,20 +65,20 @@ const TrialsActiveText = ({ classes, heroData }) => {
       <div className={classes.whiteText}>
         {heroData ? heroData.numberOfDiagnoses : 'NA'}
         {' '}
-      DIAGNOSIS
-        <span className={classes.whiteSmallText}>&nbsp;&nbsp; from Top 2:</span>
+      DIAGNOSES
+        <span className={classes.whiteSmallText}>&nbsp;&nbsp; from 2 ARMS:</span>
       </div>
       <div className={classes.blueText}>
         {sortedDiagnosis[0] && sortedDiagnosis[0].diagnoses}
         {' '}
-Diagnoses from
+Diagnoses from ARM
         {' '}
         {sortedDiagnosis[0] && sortedDiagnosis[0].arm_id}
       </div>
       <div className={classes.blueText}>
         {sortedDiagnosis[1] && sortedDiagnosis[1].diagnoses}
         {' '}
-Diagnoses from
+Diagnoses from ARM
         {' '}
         {sortedDiagnosis[1] && sortedDiagnosis[1].arm_id}
       </div>
