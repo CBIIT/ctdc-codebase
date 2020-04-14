@@ -1,5 +1,4 @@
 'use strict';
-
 // Do this as the first thing so that any code reading it knows the right env.
 process.env.BABEL_ENV = 'production';
 process.env.NODE_ENV = 'production';
@@ -81,6 +80,8 @@ checkBrowsers(paths.appPath, isInteractive)
   .then(
     ({ stats, previousFileSizes, warnings }) => {
       if (warnings.length) {
+        /* eslint no-console: ["error", { allow: ["warn", "error"] }] */
+       
         console.warn(chalk.yellow('Compiled with warnings.\n'));
         console.warn(warnings.join('\n\n'));
         console.warn(
@@ -116,6 +117,8 @@ checkBrowsers(paths.appPath, isInteractive)
       );
     },
     (err) => {
+      /* eslint no-console: ["error", { allow: ["warn", "error"] }] */
+
       console.error(chalk.red('Failed to compile.\n'));
       printBuildError(err);
       process.exit(1);
@@ -123,6 +126,8 @@ checkBrowsers(paths.appPath, isInteractive)
   )
   .catch((err) => {
     if (err && err.message) {
+      /* eslint no-console: ["error", { allow: ["warn", "error"] }] */
+
       console.error(err.message);
     }
     process.exit(1);
@@ -162,6 +167,8 @@ function build(previousFileSizes) {
           process.env.CI.toLowerCase() !== 'false') &&
         messages.warnings.length
       ) {
+        /* eslint no-console: ["error", { allow: ["warn", "error"] }] */
+
         console.warn(
           chalk.yellow(
             '\nTreating warnings as errors because process.env.CI = true.\n' +

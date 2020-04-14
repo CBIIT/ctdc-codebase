@@ -1,5 +1,8 @@
 'use strict';
 
+/* eslint no-console: ["error", { allow: ["warn", "error"] }] */
+
+
 // Do this as the first thing so that any code reading it knows the right env.
 process.env.BABEL_ENV = 'development';
 process.env.NODE_ENV = 'development';
@@ -88,9 +91,9 @@ checkBrowsers(paths.appPath, isInteractive)
     );
     const devServer = new WebpackDevServer(compiler, serverConfig);
     // Launch WebpackDevServer.
-    devServer.listen(port, HOST, (err) => {
+    devServer.listen(port, HOST, function(err){
       if (err) {
-        return console.error(err);
+        console.error(err);
       }
       if (isInteractive) {
         clearConsole();

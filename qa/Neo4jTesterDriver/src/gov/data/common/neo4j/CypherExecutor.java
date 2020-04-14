@@ -90,15 +90,16 @@ public class CypherExecutor {
 	            } );
 			 
 		 	 driver.close();
-		 	 return output;
+		 	
 	        }catch(Exception e ) {
 	        	System.out.print(e.getMessage());
 	        	
 	        	messages.add(e.getMessage());
 	        
-	        }finally{
-	    		 return output;
 	        }
+
+	        return output;
+	        
 		 
 	 }
 	
@@ -173,28 +174,21 @@ public class CypherExecutor {
 						 cell.setCellValue(m.getValue().toString().replace("\"", ""));
 						 recordIndex++;
 					 }
-				 };
-				
+				 }
 			 }
-			 
-			 
 		 }
-		 
-		 
-		 
-		 // given sheet name
-		 Sheet infoSheet = workbook.createSheet("Message");
-		 // create header row
-		 int messageIndex = 0 ;
-		 for(String message : messages) {
-			 Row row = infoSheet.createRow(messageIndex);
-			 Cell cell = row.createCell(0);
-			 cell.setCellValue(message.toString().replace("\"", ""));
-			 messageIndex++;
-		 }
+
+		 // Add new tab
+		 workbook = addNewTab(workbook,"Message",messages);
+		 // Save to file
+		 saveWorkBookToFile(workbook,output);
 		
-		 
-		// Save as file
+		
+	 }
+
+
+	 public private saveWorkBookToFile(Workbook workbook,String output){
+	 	// Save as file
 		FileOutputStream outputStream;
 		try {
 			outputStream = new FileOutputStream(output);
@@ -207,7 +201,20 @@ public class CypherExecutor {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+	 }
+	 
+	 public private addNewTab(Workbook workbook,String tabName,List<String> data ){
+	 	 // given sheet name
+		 Sheet infoSheet = workbook.createSheet("Message");
+		 // create header row
+		 int messageIndex = 0 ;
+		 for(String message : data) {
+			 Row row = infoSheet.createRow(messageIndex);
+			 Cell cell = row.createCell(0);
+			 cell.setCellValue(message.replace("\"", ""));
+			 messageIndex++;
+		 }
+		 return workbook;
 	 }
 	 
 	 public static void main (String[] args) {
