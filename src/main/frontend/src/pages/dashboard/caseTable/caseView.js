@@ -303,7 +303,7 @@ const Cases = ({ classes, data }) => {
           </div>
 )}
       />
-      <div id="table_cases">
+      <div>
         <div className={classes.chips}>
           {bubbles}
         </div>
@@ -312,7 +312,7 @@ const Cases = ({ classes, data }) => {
           <Grid item xs={12} className={classes.caseTitle}>
             Cases
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} id="table_cases">
             <MUIDataTable
               data={data}
               columns={columns}
