@@ -95,7 +95,7 @@ const LandingController = ({ classes, heroData }) => (
                     {' '}
                   </div>
                   <div className={classes.blueButtonRight}>
-                    <Link to="/trials" className={classes.blueButton}>Explore</Link>
+                    <Link to="/trials" className={classes.blueButton}>EXPLORE</Link>
                   </div>
                 </div>
               </div>
