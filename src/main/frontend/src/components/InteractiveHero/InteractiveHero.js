@@ -43,7 +43,7 @@ TRIAL
       {' '}
       {heroData ? heroData.numberOfArms : 'NA'}
       {' '}
-ARMS
+ARMs
     </div>
   </div>
 );
@@ -105,7 +105,7 @@ const FilesActiveText = ({ classes, heroData }) => (
       FILES
     </div>
     <div className={classes.blueText}>
-  From
+  from
       {' '}
       {heroData ? heroData.numberOfFileTypes : 'NA'}
       {' '}

@@ -26,13 +26,24 @@ const AttributeComponent = ({ classes, data }) => (
         {data.row[1]}
       </span>
     </div>
+    {data.row[2] !== '' && (
     <div className={classes.attributeContent}>
-      Attribute of Node:
+    Attribute of Node:
       <span className={classes.attrDesc}>
       &nbsp;
         {data.row[2]}
       </span>
     </div>
+    )}
+    { typeof data.row[8] !== 'undefined' && (
+    <div className={classes.attributeContent}>
+    Attribute of Relationship:
+      <span className={classes.attrDesc}>
+      &nbsp;
+        {data.row[8]}
+      </span>
+    </div>
+    )}
     <div className={classes.attributeContent}>
       Required:
       <span className={classes.attrDesc}>
