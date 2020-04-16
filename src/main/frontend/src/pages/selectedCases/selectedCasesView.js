@@ -402,12 +402,14 @@ const styles = (theme) => ({
     width: '120px',
     hyphens: 'auto',
     overflowWrap: 'break-word',
+    wordBreak: 'break-all',
 
   },
   tableCell8: {
     width: '100px',
     hyphens: 'auto',
     overflowWrap: 'break-word',
+    wordBreak: 'break-all',
   },
 
 });
