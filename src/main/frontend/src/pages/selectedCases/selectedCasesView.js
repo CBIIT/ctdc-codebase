@@ -401,13 +401,13 @@ const styles = (theme) => ({
   tableCell7: {
     width: '120px',
     hyphens: 'auto',
-    wordBreak: 'break-word',
+    overflowWrap: 'break-word',
 
   },
   tableCell8: {
     width: '100px',
     hyphens: 'auto',
-    wordBreak: 'break-word',
+    overflowWrap: 'break-word',
   },
 
 });
