@@ -17,7 +17,8 @@ import { receiveCases } from '../../selectedCases/selectedCasesState';
 // const tableStyle = (ratio = 1) => ({
 //   : ((((document.documentElement.clientWidth - 280) * 0.6) / 10) * ratio),
 //   overflow: 'hidden',
-//   wordBreak: 'break-word',
+//   wordBreak: 'break-all',
+//    overflowWrap:' break-wor',;
 //   maxWidth: ((((document.documentElement.clientWidth - 280) * 0.6) / 10) * ratio),
 //   minWidth: '100px',
 // }
@@ -416,42 +417,50 @@ const styles = (theme) => ({
   tableCell1: {
     width: '105px',
     overflow: 'hidden',
-    wordBreak: 'break-word',
+    wordBreak: 'break-all',
+    overflowWrap: 'break-word',
   },
   tableCell2: {
     width: '105px',
     overflow: 'hidden',
-    wordBreak: 'break-word',
+    wordBreak: 'break-all',
+    overflowWrap: 'break-word',
   },
   tableCell3: {
     width: '58px',
     overflow: 'hidden',
-    wordBreak: 'break-word',
+    wordBreak: 'break-all',
+    overflowWrap: 'break-word',
   },
   tableCell4: {
     width: '200px',
     overflow: 'hidden',
-    wordBreak: 'break-word',
+    wordBreak: 'break-all',
+    overflowWrap: 'break-word',
   },
   tableCell5: {
     width: '495px',
     overflow: 'hidden',
-    wordBreak: 'break-word',
+    wordBreak: 'break-all',
+    overflowWrap: 'break-word',
   },
   tableCell6: {
     width: '80px',
     overflow: 'hidden',
-    wordBreak: 'break-word',
+    wordBreak: 'break-all',
+    overflowWrap: 'break-word',
   },
   tableCell7: {
     width: '272px',
     overflow: 'hidden',
-    wordBreak: 'break-word',
+    wordBreak: 'break-all',
+    overflowWrap: 'break-word',
   },
   tableCell8: {
     width: '211px',
     overflow: 'hidden',
-    wordBreak: 'break-word',
+    wordBreak: 'break-all',
+    overflowWrap: 'break-word',
   },
   snackBar: {
     '& > div': {
