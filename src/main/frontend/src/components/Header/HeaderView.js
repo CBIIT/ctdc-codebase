@@ -3,11 +3,6 @@ import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core';
 import nihLogo from '../../assets/header/CTDC_Logo.svg';
 // import icdcLogo from '../../assets/header/icdc_logo_white.svg';
-// import cancergraphic400 from '../../assets/header/Canine400.png';
-// import cancergraphic800 from '../../assets/header/easter800.png';
-// import cancergraphic1400 from '../../assets/header/easter1400.png';
-// import cancergraphic1600 from '../../assets/header/easter1600.png';
-// import cancergraphic1800 from '../../assets/header/easter1800.png';
 import cancergraphic2000 from '../../assets/header/easter2000.png';
 
 
@@ -69,36 +64,10 @@ const styles = () => ({
     paddingLeft: '24px',
     background: `url(${cancergraphic2000})`,
     overflow: 'hidden',
-    // '@media (min-width: 900px)': {
-    //   backgroundRepeat: 'no-repeat',
-    //   backgroundSize: '100% 100%',
-    //   background: `url(${cancergraphic800})`,
-    // },
-    // '@media (min-width: 1200px)': {
-    //   backgroundRepeat: 'no-repeat',
-    //   backgroundSize: '100% 100%',
-    //   background: `url(${cancergraphic800})`,
-    // },
-    // '@media (min-width: 1600px)': {
-    //   backgroundRepeat: 'no-repeat',
-    //   backgroundSize: '100% 100%',
-    //   background: `url(${cancergraphic1400})`,
-    // },
-    // '@media (min-width: 2000px)': {
-    //   backgroundRepeat: 'no-repeat',
-    //   backgroundSize: '100% 100%',
-    //   background: `url(${cancergraphic1600})`,
-    // },
-    // '@media (min-width: 2200px)': {
-    //   backgroundRepeat: 'no-repeat',
-    //   backgroundSize: '100% 100%',
-    //   background: `url(${cancergraphic1800})`,
-    // },
-    // '@media (min-width: 2400px)': {
-    //   backgroundRepeat: 'no-repeat',
-    //   backgroundSize: '100% 100%',
-    //   background: `url(${cancergraphic2000})`,
-    // },
+    '@media (min-width: 2400px)': {
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: '100% 100%',
+    },
   },
   nihLogoImg: {
     width: '463px',
