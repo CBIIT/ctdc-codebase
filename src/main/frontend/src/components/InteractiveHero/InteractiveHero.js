@@ -10,7 +10,6 @@ import ActiveTrials from '../../assets/landing/animation/TrialsActive.png';
 import InActiveTrials from '../../assets/landing/animation/TrialsInActive.png';
 import CircularIcon from './CircularIcon';
 import FacingDown from '../../assets/landing/animation/Dial_facing_down.svg';
-import FacingLeft from '../../assets/landing/animation/Dial_facing_left.svg';
 import FacingUp from '../../assets/landing/animation/Dial_facing_up.svg';
 import FacingRight from '../../assets/landing/animation/Dial_facing_right.svg';
 
@@ -117,24 +116,24 @@ const FilesActiveText = ({ classes, heroData }) => (
 const InteractiveHero = ({ classes, heroData }) => {
   const [activeState, setActiveState] = React.useState({
     isActive: '',
-    transformedHorseShoe: FacingLeft,
+    transformedHorseShoe: FacingRight,
   });
   return (
     <div className={classes.animationWrapper}>
-      <div className={classes.casesIcon} onMouseEnter={() => { setActiveState({ isActive: 'cases', transformedHorseShoe: FacingUp }); }} onMouseLeave={() => { setActiveState({ isActive: '', transformedHorseShoe: FacingLeft }); }}>
+      <div className={classes.casesIcon} onMouseEnter={() => { setActiveState({ isActive: 'cases', transformedHorseShoe: FacingUp }); }} onMouseLeave={() => { setActiveState({ isActive: '', transformedHorseShoe: FacingUp }); }}>
         <CircularIcon isActive={activeState.isActive === 'cases'} InactiveImage={InActiveCases} activeImage={ActiveCases} />
       </div>
       <div className={classes.casesText}>
         {activeState.isActive === 'cases' ? <CasesActiveText heroData={heroData} classes={classes} /> : <CasesInActiveText heroData={heroData} classes={classes} />}
       </div>
       <HorseShoe transformedHorseShoe={activeState.transformedHorseShoe} />
-      <div className={classes.filesIcon} onMouseEnter={() => { setActiveState({ isActive: 'files', transformedHorseShoe: FacingRight }); }} onMouseLeave={() => { setActiveState({ isActive: '', transformedHorseShoe: FacingLeft }); }}>
+      <div className={classes.filesIcon} onMouseEnter={() => { setActiveState({ isActive: 'files', transformedHorseShoe: FacingRight }); }} onMouseLeave={() => { setActiveState({ isActive: '', transformedHorseShoe: FacingRight }); }}>
         <CircularIcon isActive={activeState.isActive === 'files'} InactiveImage={InActiveFiles} activeImage={ActiveFiles} />
       </div>
       <div className={classes.filesText}>
         {activeState.isActive === 'files' ? <FilesActiveText heroData={heroData} classes={classes} /> : <FilesInActiveText heroData={heroData} classes={classes} />}
       </div>
-      <div className={classes.trialsIcon} onMouseEnter={() => { setActiveState({ isActive: 'trials', transformedHorseShoe: FacingDown }); }} onMouseLeave={() => { setActiveState({ isActive: '', transformedHorseShoe: FacingLeft }); }}>
+      <div className={classes.trialsIcon} onMouseEnter={() => { setActiveState({ isActive: 'trials', transformedHorseShoe: FacingDown }); }} onMouseLeave={() => { setActiveState({ isActive: '', transformedHorseShoe: FacingDown }); }}>
         <CircularIcon isActive={activeState.isActive === 'trials'} InactiveImage={InActiveTrials} activeImage={ActiveTrials} />
       </div>
       <div className={classes.trialsText}>
