@@ -281,7 +281,7 @@ const styles = (theme) => ({
     '-webkit-font-smoothing': 'antialiased',
     backgroundRepeat: 'repeat-y',
     backgroundSize: '100%',
-    background: '#325068',
+    background: theme.custom.footorBackground,
     color: theme.palette.text.footerText,
     padding: '24px 35px 64px 35px',
     '& ul': {
