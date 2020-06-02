@@ -387,6 +387,7 @@ const TrialView = ({ classes, data, theme }) => {
                     color={theme.palette.dodgeBlue.main}
                     titleClass={classes.widgetTitle}
                     customBackGround
+                    overwriteBackGround={classes.overwriteBackGround}
                   >
                     <CustomActiveDonut
                       data={widgetData.diagnosis}
@@ -765,6 +766,9 @@ const styles = (theme) => ({
   },
   tableCell5: {
     width: '160px',
+  },
+  overwriteBackGround: {
+    background: '#F3F8FB',
   },
 });
 
