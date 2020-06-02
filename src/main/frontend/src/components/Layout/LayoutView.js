@@ -5,11 +5,8 @@ import Header from '../Header/HeaderView';
 import NavBar from '../NavBar/NavBarContainer';
 import Footer from '../Footer/FooterView';
 import Error from '../../pages/error/Error';
-
 // import Sidebar from '../Sidebar';
-
 // pages
-
 import Dashboard from '../../pages/dashboard/dashboardController';
 import CaseDetail from '../../pages/caseDetail/caseDetailController';
 import modelPage from '../../pages/modelPage/modelPageView';
@@ -21,6 +18,7 @@ import About from '../../pages/about/aboutController';
 import DataDictonary from '../../pages/dataDictionary/dataDictonaryController';
 import Trials from '../../pages/trials/trialsController';
 import TrialDetail from '../../pages/trialDetail/trialDetailController';
+import GraphqlClient from '../GraphqlClient/GraphqlView';
 
 const ScrollToTop = () => {
   window.scrollTo(0, 0);
@@ -60,6 +58,7 @@ const Layout = ({ classes, isSidebarOpened }) => (
             <Route path="/support" component={About} />
             <Route path="/request-access" component={About} />
             <Route path="/data-dictionary" component={DataDictonary} />
+            <Route path="/graphql" component={GraphqlClient} />
             <Route component={Error} />
           </Switch>
           <Footer data={{ isSidebarOpened }} />
