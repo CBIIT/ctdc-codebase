@@ -768,7 +768,7 @@ const styles = (theme) => ({
     width: '160px',
   },
   overwriteBackGround: {
-    background: '#F3F8FB',
+    background: '#FFFFFF',
   },
 });
 
