@@ -17,11 +17,12 @@ const Widget = ({
   className,
   header,
   customBackGround,
+  overwriteBackGround,
   titleClass,
   ...props
 }) => (
   <div className={classes.widgetWrapper}>
-    <Paper className={classnames(classes.paper,{[classes.customBackGround]:customBackGround})} classes={{ root: classes.widgetRoot }}>
+    <Paper className={classnames(classes.paper,overwriteBackGround,{[classes.customBackGround]:customBackGround})} classes={{ root: classes.widgetRoot }}>
       <div id={title} className={classes.widgetHeader}>
         {props.header ? (
           props.header

@@ -135,11 +135,10 @@ const columns = (classes) => [
       customHeadRender: () => (
         <th className={classes.tableCell9}>
           <span
+            aria-label="remove classes from cart"
             role="button"
             className={classes.removeLabel}
-          >
-            REMOVE
-          </span>
+          />
         </th>
       ),
     },

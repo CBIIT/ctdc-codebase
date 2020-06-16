@@ -6,9 +6,6 @@ import { useLocation } from 'react-router';
 import { Typography } from '../Wrappers/Wrappers';
 import cn from '../../utils/classNameConcat';
 import nciLogo from '../../assets/footer/NCI-footer.logo.svg';
-import footerBackground800 from '../../assets/footer/footerBackground800.png';
-import footerBackground1200 from '../../assets/footer/footerBackground1200.png';
-import footerBackground1800 from '../../assets/footer/footerBackground1800.png';
 
 const VERSION = process.env.REACT_APP_APPLICATION_VERSION;
 
@@ -284,7 +281,7 @@ const styles = (theme) => ({
     '-webkit-font-smoothing': 'antialiased',
     backgroundRepeat: 'repeat-y',
     backgroundSize: '100%',
-    background: `url(${footerBackground800})`,
+    background: theme.custom.footorBackground,
     color: theme.palette.text.footerText,
     padding: '24px 35px 64px 35px',
     '& ul': {
@@ -315,21 +312,6 @@ const styles = (theme) => ({
         cursor: 'pointer',
         textDecoration: 'underline',
       },
-    },
-    '@media (min-width: 800px)': {
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: '100% 100%',
-      background: `url(${footerBackground800})`,
-    },
-    '@media (min-width: 1200px)': {
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: '100% 100%',
-      background: `url(${footerBackground1200})`,
-    },
-    '@media (min-width: 1600px)': {
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: '100% 100%',
-      background: `url(${footerBackground1800})`,
     },
   },
   footerRow: {
