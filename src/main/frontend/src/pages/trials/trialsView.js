@@ -53,7 +53,7 @@ const Trials = ({ classes, data }) => {
         customBodyRender: (value) => (
           <div className={classes.tableCell2}>
             {' '}
-            {value}
+            <a className={classes.link} href="https://clinicaltrials.gov/">{value}</a>
             {' '}
           </div>
         ),
