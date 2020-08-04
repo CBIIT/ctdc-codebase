@@ -132,7 +132,7 @@
         nodeTypeDescription: "An anatomic site, that is not the primary site of disease, in trial participant, where cancerous cells have been detected. A case may have zero or more metastatic_sites."
         nodeTypeNUmber: "4"
       - nodeTypeTitle: "specimen"
-        nodeTypeDescription: "A tissue sample extracted from a case. One or more specimens may be associated with a case. Specimens may be of type tumor or normal."
+        nodeTypeDescription: "A material sample extracted from a case. One or more specimens may be associated with a case. Specimens may be of type tumor or normal."
         nodeTypeNUmber: "5"
       - nodeTypeTitle: "ihc_assay_report"
         nodeTypeDescription: "A report generated from immunohistochemistry (IHC) tests performed on a specimen. In general, the expression of four genes: PTEN, MLH1, MSH2 and RB, is assayed by a single IHC assay run. Only one ihc_assay_report, per gene,  is associated with a specimen."
@@ -148,7 +148,7 @@
         nodeTypeNUmber: "9"
       - nodeTypeTitle: "variant_report"
         nodeTypeDescription: "The report generated from processing the output of the sequencing_assay, listing the genomic abnormalities identified in the specimen. Only one variant_report is associated with a sequencing_assay. A case may have multiple variant_reports."
-        nodeTypeDescriptionParagraphTwo: "The variant_report lists genomic variants of the following types:"
+        nodeTypeDescriptionParagraphTwo: "The variant_report lists genomic variants of the represented by the following CTDC node types:"
         nodeTypeNUmber: "10"
         nodeTypeSubList: 
           - nodeTypeSubListTitle: "snv_variant"
