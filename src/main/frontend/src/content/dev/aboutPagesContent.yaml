@@ -287,7 +287,7 @@
       - attributeName: "Attribute of Node/Relationship - "
         attributeConventions: "the parent node or relationship type of attribute."
       - attributeName: "Display Name - "
-        attributeConventions: "the display name of attribute on CTDC user interface. Display names are printed for only those attributes that are in the current version of the user interface. All attributes listed below are available via CTDC's GraphQL API."
+        attributeConventions: "the display name of attribute on CTDC user interface. Display names are printed for only those attributes that displayed are in the current version of the user interface. All attributes listed below are available via CTDC’s GraphQL API."
       - attributeName: "Required - "
         attributeConventions: "a true/false label that indicates if attribute is a required field for CTDC data submitters."
       - attributeName: "Type - "
@@ -299,7 +299,7 @@
     attribute:
       - row:
         - "case"
-        - "A unique numerical identifier assigned to each patient by CTDC."
+        - "A unique numerical identifier assigned to each case by CTDC."
         - "case"
         - "Case ID"
         - "true"
@@ -308,7 +308,7 @@
         - "None"
       - row:
         - "gender"
-        - "Gender of patient"
+        - "Gender of case"
         - "case"
         - "Gender"
         - "true"
@@ -317,7 +317,7 @@
         - "MALE, FEMALE, UNKNOWN"
       - row:
         - "race"
-        - "Race of patient"
+        - "Race of case"
         - "case"
         - "Race"
         - "true"
@@ -326,7 +326,7 @@
         - "AMERICAN_INDIAN_OR_ALASKA_NATIVE, ASIAN, BLACK_OR_AFRICAN_AMERICAN, NATIVE_HAWAIIAN_OR_OTHER_PACIFIC_ISLANDER, NOT_REPORTED, UNKNOWN, WHITE"
       - row:
         - "ethnicity"
-        - "Ethnicity of patient"
+        - "Ethnicity of case"
         - "case"
         - "Ethnicity"
         - "true"
@@ -335,7 +335,7 @@
         - "HISPANIC_OR_LATINO, NOT_HISPANIC_OR_LATINO, UNKNOWN"
       - row:
         - "patient_status"
-        - "Status of patient within the MATCH workflow"
+        - "Status of case within the MATCH workflow"
         - "case"
         - ""
         - "true"
@@ -344,7 +344,7 @@
         - "COMPASSIONATE_CARE, OFF_TRIAL, OFF_TRIAL_BIOPSY_EXPIRED, OFF_TRIAL_DECEASED, OFF_TRIAL_NOT_CONSENTED, OFF_TRIAL_NO_TA_AVAILABLE, OFF_TRIAL_REGISTRATION_ERROR, ON_TREATMENT_ARM, PENDING_APPROVAL, PENDING_CONFIRMATION, PTEN_ORDER_REQUESTED, REGISTRATION, REGISTRATION_OUTSIDE_ASSAY"
       - row: 
         - "current_step"
-        - "The MATCH workflow is divided broadly into steps. Step 0 starts with patient registration and ends with the the sign-out of the first assignment report. If the patient is assigned to a treatment arm s/he moves to step 1. If patient progresses during treatment, s/he is assigned to step 2. Current step denotes the step in the workflow the patient is currently at."
+        - "The MATCH workflow is divided broadly into steps. Step 0 starts with a case registering and ends with the sign-out of the first assignment report. If case is assigned to a treatment arm s/he moves to step 1. If case progresses during treatment, s/he is assigned to step 2. Current step denotes the step in the workflow the case is currently at."
         - "case"
         - ""
         - "true"
@@ -353,7 +353,7 @@
         - "None"
       - row:
         - "disease"
-        - "Disease condition diagnosed in study patient."
+        - "Disease condition diagnosed in a case."
         - "case"
         - "Diagnosis"
         - "true"
@@ -398,7 +398,7 @@
         - "None"
       - row:
         - "extent_of_disease"
-        - "Extent of disease at study entry. Source is ECOG-ACRIN"
+        - "Extent of disease at trial entry."
         - "case"
         - ""
         - "false"
@@ -424,7 +424,7 @@
         - "Is Unique"
         - "None"
       - row: 
-        - "specimen_type"
+        - "The type of material specimen extracted from a case."
         - "Biopsy type."
         - "specimen"
         - ""
@@ -443,7 +443,7 @@
         - "None"
       - row:
         - "metastatic_site_name"
-        - "Metastatic site at study entry. Source is ECOG-ACRIN."
+        - "Name of anatomic site where metastasis was detected at trial entry"
         - "metastatic_site"
         - ""
         - "true"
@@ -452,7 +452,7 @@
         - "Bone Marrow, Bone, Lung, Pleura, Liver, Kidney, Stomach, Small intestine, Large intestine, Skin, Orbit, Conjunctiva, Parotid, Submandibular, Testicle, Epidural, CNS-Brain, CNS-Leptom, Pericardium, Lymph Nodes, Adrenals, Other"
       - row:
         - "aliquot_id"
-        - "A unique identifer assigned to an aliquot of nucleic acid, prepared from a patient's tumor biopsy, by CTDC."
+        - "A unique identifier assigned to an aliquot of nucleic acid, prepared from a specimen, by CTDC."
         - "nucleic_acid"
         - ""
         - "true"
@@ -461,7 +461,7 @@
         - "None"
       - row:
         - "nucleic_acid_concentration"
-        - "Nucleic acid concentration of aliquot expressed in nanograms per microliter"
+        - "Concentration of nucleic acid aliquot extracted from a specimen."
         - "nucleic_acid"
         - ""
         - "true"
@@ -470,7 +470,7 @@
         - "None"
       - row:
         - "nucleic_acid_volume"
-        - "Aliquot volume expressed as microliters."
+        - "Volume of nucleic acid aliquot extracted from a specimen."
         - "nucleic_acid"
         - ""
         - "true"
@@ -543,7 +543,7 @@
         - "None"
       - row: 
         - "cellularity"
-        - "The fraction of biopsy specimen estimated to be comprised of tumor cells."
+        - "The fraction of specimen estimated to be comprised of tumor cells."
         - "variant_report"
         - ""
         - "false"
@@ -822,7 +822,7 @@
         - "Complete response, Partial response, Stable disease, Progressive disease, Not evaluable"
       - row:
         - "arm_id"
-        - "A unique identifier assigned to a study arm."
+        - "A unique identifier assigned to a trial arm."
         - "arm"
         - "Treatment Arm"
         - "true"
@@ -831,7 +831,7 @@
         - "A, C2, E, L, T, V, Z1E, Z1G, Z1H, Z1K, Z1L, Z1J, Z1M, C1, J, K1, K2, M, Z1C, Z1F, F, G, H, R, U, S1, S2, X, Z1A, B, Z1B, Z1D, Z1I, I, N, P, Q, W, Y"
       - row:
         - "arm_target"
-        - "A concise description of genomic aberrations being targeted by study arm."
+        - "A concise description of genomic aberrations being targeted by trial arm."
         - "arm"
         - "Treatment Arm Target"
         - "true"
@@ -849,7 +849,7 @@
         - "None"
       - row:
         - "pubmed_id"
-        - "PubMed ID of the primary publication associated with study arm"
+        - "PubMed ID of the primary publication associated with trial arm."
         - "arm"
         - "PubMed ID"
         - "true"
@@ -866,8 +866,8 @@
         - "Is Unique"
         - "None"
       - row:
-        - "clinical_trial_descriptio"
-        - "A brief description of clinical study."
+        - "clinical_trial_description"
+        - "A brief description of clinical trial."
         - "clinical_trial"
         - "Trial Description"
         - "true"
@@ -876,7 +876,7 @@
         - "None"
       - row:
         - "clinical_trial_designation"
-        - "A concise name for clinical study eg. MATCH"
+        - "A concise name for clinical trial eg. NCI-MATCH"
         - "clinical_trial"
         - "Trial Code"
         - "true"
