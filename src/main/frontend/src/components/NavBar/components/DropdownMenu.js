@@ -28,6 +28,14 @@ const CustomDropdownMenu = ({ classes, handleClick }) => (
         <NavLink
           className={classes.link}
           activeStyle={{ color: 'white' }}
+          to="/graphql"
+          onClick={handleClick}
+        >
+               CTDC GraphQL Explorer
+        </NavLink>
+        <NavLink
+          className={classes.link}
+          activeStyle={{ color: 'white' }}
           to="/model"
           onClick={handleClick}
         >

@@ -2,6 +2,7 @@ import React from 'react';
 import GraphiQL from 'graphiql';
 import { withStyles } from '@material-ui/core';
 import fetch from 'isomorphic-fetch';
+import customDefaultQuery from './GraphiqlDefaultQuery';
 
 const BACKEND = process.env.REACT_APP_BACKEND_API;
 
@@ -13,7 +14,15 @@ function graphQLFetcher(graphQLParams) {
   }).then((response) => response.json());
 }
 
-const GraphqlView = ({ classes }) => (<div className={classes.grapqhQlContainer}><GraphiQL editorTheme="solarized light" fetcher={graphQLFetcher} /></div>);
+const GraphqlView = ({ classes }) => (
+  <div className={classes.grapqhQlContainer}>
+    <GraphiQL
+      query={customDefaultQuery}
+      editorTheme="solarized light"
+      fetcher={graphQLFetcher}
+    />
+  </div>
+);
 
 
 const styles = () => ({
