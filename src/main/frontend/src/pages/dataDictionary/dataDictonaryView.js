@@ -94,9 +94,16 @@ const DataDictonaryView = ({ classes, data }) => {
                   {nodeType.nodeTypeDescriptionParagraphTwo}
                 </div>
                 {nodeType.nodeTypeSubList
-                && (nodeType.nodeTypeSubList.map((sublist) => (
+                && (nodeType.nodeTypeSubList.map((sublist, index) => (
                   <div className={classes.nodeTypeSubListContainer}>
-                    <div className={classes.nodeTypeTitle}>{sublist.nodeTypeSubListTitle}</div>
+                    <div className={classes.nodeTypeTitle}>
+                      {'('}
+                      {nodeType.nodeTypeNUmber}
+                      {'.'}
+                      {index + 1}
+                      {') '}
+                      {sublist.nodeTypeSubListTitle}
+                    </div>
                     <div className={classes.nodeTypeDesc}>{sublist.nodeTypeSubListDescription}</div>
                   </div>
                 ))
