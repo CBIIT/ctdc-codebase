@@ -47,7 +47,7 @@ const CustomDropdownMenu = ({ classes, handleClick }) => (
           to="/data-dictionary"
           onClick={handleClick}
         >
-                CTDC Data Dictionary
+                CTDC Attribute Types
         </NavLink>
         <NavLink
           className={classes.link}
