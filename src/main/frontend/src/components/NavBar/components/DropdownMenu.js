@@ -28,6 +28,14 @@ const CustomDropdownMenu = ({ classes, handleClick }) => (
         <NavLink
           className={classes.link}
           activeStyle={{ color: 'white' }}
+          to="/data-dictionary"
+          onClick={handleClick}
+        >
+                CTDC Attribute Types
+        </NavLink>
+        <NavLink
+          className={classes.link}
+          activeStyle={{ color: 'white' }}
           to="/graphql"
           onClick={handleClick}
         >
@@ -40,14 +48,6 @@ const CustomDropdownMenu = ({ classes, handleClick }) => (
           onClick={handleClick}
         >
                CTDC Data & Model
-        </NavLink>
-        <NavLink
-          className={classes.link}
-          activeStyle={{ color: 'white' }}
-          to="/data-dictionary"
-          onClick={handleClick}
-        >
-                CTDC Attribute Types
         </NavLink>
         <NavLink
           className={classes.link}
