@@ -255,6 +255,17 @@ type FileDetail {
   acl: String
 }
 
+type ArmDetail {
+  arm_id: String
+  arm_title: String
+  art_target: String
+  arm_drug: String
+  pubmed_id: String
+  inclusion_criteria: String
+  diagnosis: [DiagnosisCaseCount]
+  num_files: Int
+}
+
 
 schema {
   query: QueryType
@@ -307,6 +318,23 @@ type QueryType {
 
   clinicalTrialByTrialId(trial_id: String!): [ClinicalTrial] @cypher(statement:"MATCH (t:clinical_trial {clinical_trial_id:$trial_id})<--(a:arm)<--(c:case)  RETURN t.clinical_trial_id as clinical_trial_id,t.clinical_trial_long_name as clinical_trial_long_name,t.clinical_trial_description as clinical_trial_description,t.lead_organization as lead_organization,t.principal_investigators as principal_investigators,t.clinical_trial_type as clinical_trial_type,t.clinical_trial_short_name as clinical_trial_short_name, t.clinical_trial_designation as clinical_trial_designation, COUNT(DISTINCT(c)) as number_of_cases,COUNT(DISTINCT(a)) as number_of_arms ")
 
+  armDetail(arm_id: String!): ArmDetail @cypher(statement: """
+    MATCH (a:arm)
+    WHERE a.arm_id = $arm_id
+    OPTIONAL MATCH (a)<-[*]-(c:case)
+    WITH a, {disease: c.ctep_subcategory, cases: COUNT(DISTINCT c) } AS diag
+    OPTIONAL MATCH (a)<--(cr:disease_eligibility_criterion)
+    OPTIONAL MATCH (a)<-[*]-(f:file)
+    RETURN  a.arm_id AS arm_id,
+            a.arm_title AS arm_title,
+            a.arm_target AS arm_target,
+            a.arm_drug AS arm_drug,
+            a.pubmed_id AS pubmed_id,
+            cr.ctep_subcategory AS inculsion_criteria,
+            COLLECT(DISTINCT diag ) AS diagnosis,
+            COUNT(DISTINCT f) AS num_files
+  """, passThrough: true)
+
   "get trial arms by trials id"
   clinicalTrialArmByTrialId(trial_id: String!):[TrialArm] @cypher(statement:"MATCH (t:clinical_trial {clinical_trial_id:$trial_id})<--(a:arm) Optional MATCH (a)<--(c:case) Return a.arm_id As arm_id,a.arm_target As arm_target, a.arm_drug As arm_drug , a.pubmed_id As pubmed_id,COUNT(DISTINCT(c)) as number_of_cases")
 
@@ -316,7 +344,7 @@ type QueryType {
   "get all files for a list of cases"
   filesOfCases(case_ids: [String!]!): [FilesOfCase] @cypher(statement: "MATCH (f:file)-[*]->(s:specimen)-->(c:case) WITH DISTINCT(f) AS f, c MATCH (f)-->(parent) WHERE c.case_id IN $case_ids RETURN f.file_status AS file_status,f.file_name AS file_name ,f.file_type AS file_type,f.file_description AS file_description,f.file_format AS file_format,f.file_size AS file_size,f.md5sum AS md5sum,f.uuid AS uuid,f.file_location AS file_locations, head(labels(parent)) AS parent, c.case_id AS case_id")
 
-  "case over view"
+  "case overview"
   caseOverview: [CaseOverview] @cypher(statement:"MATCH (t:clinical_trial)<--(a:arm)<--(c:case)<--(s:specimen) WITH DISTINCT c AS c, t ,a, s  OPTIONAL MATCH (s)<-[*]-(f:file)  Return c.case_id  As case_id,t.clinical_trial_designation as clinical_trial_code,a.arm_id As arm_id, a.arm_drug As arm_drug, a.pubmed_id As pubmed_id, c.disease As disease, c.gender As gender, c.race As race, c.ethnicity As ethnicity, t.clinical_trial_id As clinical_trial_id, a.arm_id+'_'+ a.arm_drug As trial_arm, COLLECT(DISTINCT(f.file_type)) AS file_types, COLLECT(DISTINCT(f.file_format)) AS file_formats, COLLECT(DISTINCT(f)) AS files", passThrough:true)
 
   "case information for given cases"
