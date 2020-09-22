@@ -8,7 +8,8 @@ type arm {
   assignment_reports: [assignment_report] 
   cases: [case] 
   files: [file] 
-  NONE: [drug_eligibility_criterion] 
+  disease_eligibility_criterions: [disease_eligibility_criterion] 
+  drug_eligibility_criterions: [drug_eligibility_criterion] 
   clinical_trial: clinical_trial 
 }
 
@@ -503,6 +504,7 @@ type ArmDetail {
   inclusion_criteria: String
   diagnosis: [DiagnosisCaseCount]
   num_files: Int
+  files: [file]
 }
 
 

@@ -8,7 +8,8 @@ type arm {
   assignment_reports: [assignment_report] @relation(name:"of_arm", direction:IN)
   cases: [case] @relation(name:"of_arm", direction:IN)
   files: [file] @relation(name:"of_arm", direction:IN)
-  NONE: [drug_eligibility_criterion] @relation(name:"of_arm", direction:IN)
+  disease_eligibility_criterions: [disease_eligibility_criterion] @relation(name:"of_arm", direction:IN)
+  drug_eligibility_criterions: [drug_eligibility_criterion] @relation(name:"of_arm", direction:IN)
   clinical_trial: clinical_trial @relation(name:"of_trial", direction:OUT)
 }
 
@@ -503,6 +504,7 @@ type ArmDetail {
   inclusion_criteria: String
   diagnosis: [DiagnosisCaseCount]
   num_files: Int
+  files: [file]
 }
 
 
@@ -571,7 +573,8 @@ type QueryType {
             a.pubmed_id AS pubmed_id,
             cr.ctep_subcategory AS inculsion_criteria,
             COLLECT(DISTINCT diag ) AS diagnosis,
-            COUNT(DISTINCT f) AS num_files
+            COUNT(DISTINCT f) AS num_files,
+            COLLECT(DISTINCT f) AS files
   """, passThrough: true)
 
   "get trial arms by trials id"

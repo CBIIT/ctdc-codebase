@@ -264,6 +264,7 @@ type ArmDetail {
   inclusion_criteria: String
   diagnosis: [DiagnosisCaseCount]
   num_files: Int
+  files: [file]
 }
 
 
@@ -332,7 +333,8 @@ type QueryType {
             a.pubmed_id AS pubmed_id,
             cr.ctep_subcategory AS inculsion_criteria,
             COLLECT(DISTINCT diag ) AS diagnosis,
-            COUNT(DISTINCT f) AS num_files
+            COUNT(DISTINCT f) AS num_files,
+            COLLECT(DISTINCT f) AS files
   """, passThrough: true)
 
   "get trial arms by trials id"
