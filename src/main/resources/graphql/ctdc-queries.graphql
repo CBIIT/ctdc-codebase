@@ -331,7 +331,7 @@ type QueryType {
             a.arm_target AS arm_target,
             a.arm_drug AS arm_drug,
             a.pubmed_id AS pubmed_id,
-            cr.ctep_subcategory AS inculsion_criteria,
+            "Inclusion Criteria space holder" AS inculsion_criteria,
             COLLECT(DISTINCT diag ) AS diagnosis,
             COUNT(DISTINCT f) AS num_files,
             COLLECT(DISTINCT f) AS files
