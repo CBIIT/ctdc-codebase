@@ -18,6 +18,7 @@ import About from '../../pages/about/aboutController';
 import DataDictonary from '../../pages/dataDictionary/dataDictonaryController';
 import Trials from '../../pages/trials/trialsController';
 import TrialDetail from '../../pages/trialDetail/trialDetailController';
+import ArmDetail from '../../pages/armDetail/armDetailController';
 import GraphqlClient from '../GraphqlClient/GraphqlView';
 
 const ScrollToTop = () => {
@@ -50,6 +51,7 @@ const Layout = ({ classes, isSidebarOpened }) => (
             <Route path="/myCasesFiles" component={SelectedFiles} />
 
             <Route path="/trial/:id" component={TrialDetail} />
+            <Route path="/arm/:id" component={ArmDetail} />
             <Route path="/case/:id" component={CaseDetail} />
             <Route path="/purpose" component={About} />
             <Route path="/crdc" component={About} />

@@ -197,3 +197,33 @@ export const LANDING_QUERY = gql`{
     }
   }
   `;
+
+export const ARMS_BY_ID_QUERY = gql`
+query armDetail ($arm_id: String!) { 
+  armDetail (arm_id: $arm_id) {
+      arm_id
+      arm_title
+      arm_target
+      arm_drug
+      pubmed_id
+      inclusion_criteria
+      diagnosis {
+          disease
+          cases
+      }
+      num_files
+      files {
+          file_name
+          file_description
+          file_format
+          file_location
+          file_name
+          file_size
+          file_status
+          file_type
+          md5sum
+          uuid
+      }
+  }
+}
+`;

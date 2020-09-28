@@ -122,9 +122,7 @@ const Cases = ({ classes, data }) => {
         filter: false,
         customBodyRender: (value) => (
           <div className={classes.tableCell3}>
-            {' '}
-            {value}
-            {' '}
+            <Link to={`/arm/${value}`} className={classes.link}>{value}</Link>
           </div>
         ),
       },

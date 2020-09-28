@@ -1,0 +1,589 @@
+type arm {
+  arm_id: String
+  arm_title: String
+  arm_target: String
+  arm_drug: String
+  pubmed_id: String
+  dbgap_accession_number: String
+  assignment_reports: [assignment_report] 
+  cases: [case] 
+  files: [file] 
+  disease_eligibility_criterions: [disease_eligibility_criterion] 
+  drug_eligibility_criterions: [drug_eligibility_criterion] 
+  clinical_trial: clinical_trial 
+}
+
+type assignment_report {
+  assignment_report_id: String
+  step_at_assignment: Int
+  assignment_logic: String
+  assignment_outcome: String
+  treatment_outcome: String
+  specimen: specimen 
+  variant_report: variant_report 
+  arm: arm 
+}
+
+type case {
+  case_id: String
+  gender: String
+  race: String
+  ethnicity: String
+  patient_status: String
+  current_step: Int
+  disease: String
+  ctep_category: String
+  ctep_subcategory: String
+  meddra_code: String
+  prior_drugs: String
+  extent_of_disease: String
+  ecog_performance_status: Int
+  specimens: [specimen] 
+  arms: [arm] 
+  metastatic_sites: [metastatic_site] 
+}
+
+type clinical_trial {
+  clinical_trial_id: String
+  clinical_trial_short_name: String
+  clinical_trial_description: String
+  clinical_trial_designation: String
+  clinical_trial_long_name: String
+  clinical_trial_type: String
+  lead_organization: String
+  principal_investigators: String
+  dbgap_accession_number: String
+  arms: [arm] 
+}
+
+type copy_number_variant {
+  variant_id: String
+  external_variant_id: String
+  gene: String
+  chromosome: String
+  oncomine_variant_class: String
+  tumor_suppressor: Boolean
+  variant_reports: [variant_report] 
+}
+
+type copy_number_variant_of {
+  copy_number: Float
+  copy_number_ci_5: Float
+  copy_number_ci_95: Float
+}
+
+type delins_variant {
+  variant_id: String
+  external_variant_id: String
+  gene: String
+  chromosome: String
+  exon: Int
+  position: Int
+  reference: String
+  alternative: String
+  transcript_id: String
+  transcript_hgvs: String
+  genomic_hgvs: String
+  oncomine_variant_class: String
+  variant_classification: String
+  amino_acid_change: String
+  variant_reports: [variant_report] 
+}
+
+type delins_variant_of {
+  allele_frequency: Float
+}
+
+type disease_eligibility_criterion {
+  disease_eligibility_criterion_id: String
+  criterion_type: String
+  ctep_category: String
+  ctep_subcategory: String
+  ctep_short_name: String
+  meddra_code: String
+  arms: [arm] 
+}
+
+type drug_eligibility_criterion {
+  drug_eligibility_criterion_id: String
+  criterion_type: String
+  drug_name: String
+  arms: [arm] 
+}
+
+type file {
+  file_description: String
+  file_format: String
+  file_location: String
+  file_name: String
+  file_size: Float
+  file_status: String
+  file_type: String
+  md5sum: String
+  uuid: String
+  sequencing_assay: sequencing_assay 
+  arm: arm 
+}
+
+type gene_fusion_variant {
+  variant_id: String
+  external_variant_id: String
+  gene1: String
+  gene2: String
+  oncomine_variant_class: String
+  variant_reports: [variant_report] 
+}
+
+type gene_fusion_variant_of {
+  gene1_read_count: Int
+  gene2_read_count: Int
+}
+
+type ihc_assay_report {
+  ihc_assay_id: String
+  ihc_test_gene: String
+  ihc_test_result: String
+  specimen: specimen 
+}
+
+type indel_variant {
+  variant_id: String
+  external_variant_id: String
+  gene: String
+  chromosome: String
+  exon: Int
+  position: Int
+  reference: String
+  alternative: String
+  transcript_id: String
+  transcript_hgvs: String
+  genomic_hgvs: String
+  oncomine_variant_class: String
+  variant_classification: String
+  amino_acid_change: String
+  variant_reports: [variant_report] 
+}
+
+type indel_variant_of {
+  allele_frequency: Float
+}
+
+type metastatic_site {
+  met_site_id: String
+  metastatic_site_name: String
+  cases: [case] 
+}
+
+type nucleic_acid {
+  aliquot_id: String
+  nucleic_acid_concentration: Float
+  nucleic_acid_volume: Float
+  nucleic_acid_type: String
+  specimen: specimen 
+  sequencing_assays: [sequencing_assay] 
+}
+
+type sequencing_assay {
+  qc_result: String
+  experimental_method: String
+  platform: String
+  nucleic_acid: nucleic_acid 
+  files: [file] 
+  variant_reports: [variant_report] 
+}
+
+type snv_variant {
+  variant_id: String
+  external_variant_id: String
+  gene: String
+  chromosome: String
+  exon: Int
+  position: Int
+  reference: String
+  alternative: String
+  transcript_id: String
+  transcript_hgvs: String
+  genomic_hgvs: String
+  oncomine_variant_class: String
+  variant_classification: String
+  amino_acid_change: String
+  variant_reports: [variant_report] 
+}
+
+type snv_variant_of {
+  allele_frequency: Float
+}
+
+type specimen {
+  specimen_id: String
+  specimen_type: String
+  case: case 
+  ihc_assay_reports: [ihc_assay_report] 
+  nucleic_acids: [nucleic_acid] 
+  assignment_reports: [assignment_report] 
+}
+
+type variant_report {
+  variant_report_id: String
+  mapd: Float
+  cellularity: Float
+  torrent_variant_caller_version: String
+  reference_genome: String
+  sequencing_assay: sequencing_assay 
+  snv_variants: [snv_variant] 
+  delins_variants: [delins_variant] 
+  indel_variants: [indel_variant] 
+  copy_number_variants: [copy_number_variant] 
+  gene_fusion_variants: [gene_fusion_variant] 
+  assignment_reports: [assignment_report] 
+}
+
+type ClinicalTrial{
+  clinical_trial_id: String
+  clinical_trial_short_name: String
+  clinical_trial_description: String
+  clinical_trial_designation: String
+  clinical_trial_long_name: String
+  clinical_trial_type: String
+  lead_organization: String
+  principal_investigators: String
+  number_of_cases: Int
+  number_of_arms: Int
+}
+
+type TrialArm{
+  arm_id: String
+  arm_target: String
+  arm_drug: String
+  pubmed_id: String
+  number_of_cases: Int
+}
+
+type CaseOverview{
+  case_id: String
+  clinical_trial_code: String
+  arm_id: String
+  arm_drug: String
+  disease: String
+  gender: String
+  race: String
+  arm_target: String
+  ethnicity: String
+  clinical_trial_id: String
+  pubmed_id: String
+  trial_arm: String
+  file_types:[String]
+  file_formats:[String]
+  files: [file]
+}
+
+type CaseDetail{
+  case_id: String
+  clinical_trial_code: String
+  clinical_trial_id: String
+  disease: String
+  gender: String
+  race: String
+  ethnicity: String
+  trial_arm: String
+  arms: [arm]
+}
+
+type CaseInfo {
+  clinical_trial_code: String
+  clinical_trial_id: String
+  arm_id: String
+  arm_drug: String
+  arm_target: String
+  case_id: String
+  disease: String
+  gender: String
+  race: String
+  ethnicity: String
+}
+
+type TrialIdCaseCount {
+  clinical_trial_id: String
+  cases: Int
+}
+
+type TrialCodeCaseCount {
+  clinical_trial_designation: String
+  cases: Int
+}
+
+type PubMedIDCaseCount {
+  pubmed_id: String
+  cases: Int
+}
+
+type GenderCaseCount {
+  gender: String
+  cases: Int
+}
+
+type RaceCaseCount {
+  race: String
+  cases: Int
+}
+
+type EthnicityCaseCount {
+  ethnicity: String
+  cases: Int
+}
+
+type DiagnosisCaseCount {
+  disease: String
+  cases: Int
+}
+
+type FileTypeCaseCount {
+  file_type: String
+  cases: Int
+}
+
+type FileFormatCaseCount {
+  file_format: String
+  cases: Int
+}
+
+type TrialArmCaseCount {
+  trial_arm:String
+  cases: Int
+}
+
+type FilesOfCase {
+  case_id: String
+  parent:String
+  file_name: String
+  file_type: String
+  file_description: String
+  file_format: String
+  file_size: Float
+  md5sum: String
+  file_status: String
+  uuid: String
+  file_locations: String
+}
+
+type SnvVariant {
+  variant_id: String
+  external_variant_id: String
+  gene: String
+  chromosome: String
+  exon: Int
+  position: Int
+  reference: String
+  alternative: String
+  transcript_id: String
+  transcript_hgvs: String
+  genomic_hgvs: String
+  oncomine_variant_class: String
+  variant_classification: String
+  amino_acid_change: String
+  allele_frequency: Float
+}
+
+type DelinsVariant {
+  variant_id: String
+  external_variant_id: String
+  gene: String
+  chromosome: String
+  exon: Int
+  position: Int
+  reference: String
+  alternative: String
+  transcript_id: String
+  transcript_hgvs: String
+  genomic_hgvs: String
+  oncomine_variant_class: String
+  variant_classification: String
+  amino_acid_change: String
+  allele_frequency: Float
+}
+
+type IndelVariant {
+  variant_id: String
+  external_variant_id: String
+  gene: String
+  chromosome: String
+  exon: Int
+  position: Int
+  reference: String
+  alternative: String
+  transcript_id: String
+  transcript_hgvs: String
+  genomic_hgvs: String
+  oncomine_variant_class: String
+  variant_classification: String
+  amino_acid_change: String
+  allele_frequency: Float
+}
+
+type CopyNumberVariant {
+  variant_id: String
+  external_variant_id: String
+  gene: String
+  chromosome: String
+  oncomine_variant_class: String
+  tumor_suppressor: Boolean
+  copy_number: Float
+  copy_number_ci_5: Float
+  copy_number_ci_95: Float
+}
+
+type GeneFusionVariant {
+  variant_id: String
+  external_variant_id: String
+  gene1: String
+  gene2: String
+  oncomine_variant_class: String
+  gene1_read_count: Int
+  gene2_read_count: Int
+}
+
+type CaseVariants {
+  case_id: String
+  specimen_id: String
+  specimen_type: String
+  aliquot_id: String
+  sequencing_assay_id: String
+  variant_report_id: String
+  snv_variants_array: [SnvVariant]
+  delins_variants_array: [DelinsVariant]
+  indel_variants_array: [IndelVariant]
+  copy_number_variants_array: [CopyNumberVariant]
+  gene_fusion_variants_array: [GeneFusionVariant]
+  ihc_assay_report_array: [ihc_assay_report]
+}
+
+type ArmDiagnoses {
+  arm_id: String
+  diagnoses: Int
+}
+
+type FileDetail {
+  Trial_ID: String
+  Trial_Code: String
+  Treatment_Arm: String
+  Case_ID: String
+  Gender: String
+  Race: String
+  Ethnicity: String
+  Diagnosis: String
+  CTEP_Category: String
+  CTEP_Sub_Category: String
+  MedDRA_Code: String
+  Prior_Drugs: String
+  Specimen_ID: String
+  Specimen_Type: String
+  Aliquot_ID: String
+  PTEN_IHC_Status: String
+  MLH1_IHC_Status: String
+  MSH2_IHC_Status: String
+  RB_IHC_Status: String
+  Experimental_strategy: String
+  Platform: String
+  Reference_genome: String
+  File_UUID: String
+  File_Name: String
+  File_Type: String
+  File_Size: Float
+  md5sum: String
+  File_Location: String
+  GUID: String
+  acl: String
+}
+
+type ArmDetail {
+  arm_id: String
+  arm_title: String
+  arm_target: String
+  arm_drug: String
+  pubmed_id: String
+  inclusion_criteria: String
+  diagnosis: [DiagnosisCaseCount]
+  num_files: Int
+  files: [file]
+}
+
+
+schema {
+  query: QueryType
+}
+
+type QueryType {
+  schemaVersion: String 
+
+  numberOfTrials: Int 
+  numberOfArms: Int 
+  numberOfCases: Int 
+  numberOfFiles: Int 
+  numberOfFileTypes: Int  
+  numberOfDiagnoses: Int 
+
+  caseCountByTrialId(trial_id: String!):Int 
+  fileCountByTrialId(trial_id: String!):Int 
+  fileCountByCaseId(case_id: String!): Int 
+  diagnosisCountByArm: [ArmDiagnoses] 
+
+
+
+
+  casesCountBaseOnTrialId:[TrialIdCaseCount] 
+
+
+  casesCountBaseOnTrialCode: [TrialCodeCaseCount] 
+
+
+  casesCountBaseOnPubMedID: [PubMedIDCaseCount] 
+
+
+  casesCountBaseOnGender: [GenderCaseCount] 
+
+
+  casesCountBaseOnRace: [RaceCaseCount] 
+
+  casesCountBaseOnEthnicity: [EthnicityCaseCount] 
+
+  casesCountBaseOnDiagnosis: [DiagnosisCaseCount] 
+
+  casesCountBaseOnFileType: [FileTypeCaseCount] 
+
+  casesCountBaseOnFileFormat: [FileFormatCaseCount] 
+
+
+  casesCountBaseOnTrialArm: [TrialArmCaseCount] 
+
+  clinicalTrials: [ClinicalTrial] 
+
+  clinicalTrialByTrialId(trial_id: String!): [ClinicalTrial] 
+
+  armDetail(arm_id: String!): ArmDetail 
+
+  "get trial arms by trials id"
+  clinicalTrialArmByTrialId(trial_id: String!):[TrialArm] 
+
+  "get all files for a case"
+  filesOfCase(case_id: String!): [FilesOfCase] 
+
+  "get all files for a list of cases"
+  filesOfCases(case_ids: [String!]!): [FilesOfCase] 
+
+  "case overview"
+  caseOverview: [CaseOverview] 
+
+  "case information for given cases"
+  casesInList(case_ids: [String!]!): [CaseInfo] 
+
+
+  "case detail"
+  caseDetailByCaseId(case_id: String!): [CaseDetail] 
+
+  "variants_of_case"
+  variantsOfCases(case_ids: [String] = []): [CaseVariants] 
+
+  "SBG manifests"
+  caseLevelFileDetail(file_ids: [String] = []): [FileDetail] 
+  armLevelFileDetail(file_ids: [String] = []): [FileDetail] 
+}
