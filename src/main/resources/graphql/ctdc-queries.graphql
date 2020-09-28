@@ -258,7 +258,7 @@ type FileDetail {
 type ArmDetail {
   arm_id: String
   arm_title: String
-  art_target: String
+  arm_target: String
   arm_drug: String
   pubmed_id: String
   inclusion_criteria: String
