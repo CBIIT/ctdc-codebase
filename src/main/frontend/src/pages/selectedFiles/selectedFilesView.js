@@ -4,6 +4,7 @@ import MUIDataTable from 'mui-datatables';
 import icon from '../../assets/icons/Icon-MyCases.svg';
 import wizardIcon from '../../assets/icons/MyCases-Wizard-Step3.svg';
 import CustomFooter from './customFooter';
+import GA from '../../utils/googleAnalytics';
 
 class selectedFilesView extends Component {
   constructor(props) {
@@ -114,6 +115,7 @@ class selectedFilesView extends Component {
     }
 
     function downloadJson() {
+      GA.sendEvent('Manifest', 'Download', 'cart');
       const jsonse = JSON.stringify(globalData);
       const csv = convertToCSV(jsonse);
       const data = new Blob([csv], { type: 'text/csv' });
