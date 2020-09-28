@@ -274,7 +274,6 @@ const ArmDetail = ({ classes, data, theme }) => {
                   </div>
                 </Grid>
 
-
               </Grid>
             </Grid>
 
@@ -374,7 +373,6 @@ const ArmDetail = ({ classes, data, theme }) => {
     </>
   );
 };
-
 
 const styles = (theme) => ({
   firstColumn: {
