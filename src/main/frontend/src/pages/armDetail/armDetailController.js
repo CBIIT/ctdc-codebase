@@ -29,5 +29,4 @@ const ArmDetailContainer = ({ match }) => (
   </Query>
 );
 
-
 export default ArmDetailContainer;

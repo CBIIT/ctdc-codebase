@@ -32,7 +32,6 @@ const ArmDetail = ({ classes, data, theme }) => {
     dispatch(fetchDataForDashboardDataTable()),
   );
 
-
   React.useEffect(() => {
     // Update dashboard first
     dispatch(initDashboardStatus());
@@ -161,7 +160,6 @@ const ArmDetail = ({ classes, data, theme }) => {
           <div className={classes.headerTitle}>
             <div className={classes.headerMainTitle}>
               <span>
-                {' '}
                  Arm Code:
                 <span>
                   {' '}
