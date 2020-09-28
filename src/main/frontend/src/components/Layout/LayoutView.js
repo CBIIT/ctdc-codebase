@@ -20,6 +20,7 @@ import Trials from '../../pages/trials/trialsController';
 import TrialDetail from '../../pages/trialDetail/trialDetailController';
 import ArmDetail from '../../pages/armDetail/armDetailController';
 import GraphqlClient from '../GraphqlClient/GraphqlView';
+import GA from '../../utils/googleAnalytics';
 
 const ScrollToTop = () => {
   window.scrollTo(0, 0);
@@ -39,6 +40,7 @@ const Layout = ({ classes, isSidebarOpened }) => (
           className={classes.content}
         >
           <Route component={ScrollToTop} />
+          { GA.init() && <GA.RouteTracker /> }
           <Switch>
             <Route exact path="/ICDC/" component={Home} />
             <Route exact path="/" component={Home} />

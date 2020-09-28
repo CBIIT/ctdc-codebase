@@ -14,6 +14,8 @@ import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import CheckBoxBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import { toggleCheckBox } from '../../../pages/dashboard/dashboardState';
+import GA from '../../../utils/googleAnalytics';
+
 
 const CustomExpansionPanelSummary = withStyles({
   root: {
@@ -54,6 +56,8 @@ const FacetPanel = ({ classes }) => {
   });
 
   const handleChange = (panel) => (event, isExpanded) => {
+    const groupStatus = isExpanded ? 'expand' : 'collapse';
+    GA.sendEvent('Facets', groupStatus, `${panel} Group`);
     setExpanded(isExpanded ? panel : `${panel}false`);
 
     // set height of filters.
@@ -61,6 +65,11 @@ const FacetPanel = ({ classes }) => {
 
   const handleToggle = (value) => () => {
     const valueList = value.split('$$');
+
+    // Note: Registering events based on Group Dimension(aka Panel) gets filterd.
+    // We are not tracking which specific values are being filter.
+    GA.sendEvent('Facets', 'Filter', valueList[1]);
+
     // dispatch toggleCheckBox action
     dispatch(toggleCheckBox([{
       groupName: valueList[1],
