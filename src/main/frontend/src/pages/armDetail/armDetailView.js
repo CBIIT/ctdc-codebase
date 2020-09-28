@@ -37,7 +37,6 @@ const ArmDetail = ({ classes, data, theme }) => {
     dispatch(initDashboardStatus());
   }, []);
 
-
   const redirectTo = () => {
     dispatch(initDashboardStatus()).then(() => {
       dispatch(singleCheckBox([{
@@ -48,7 +47,6 @@ const ArmDetail = ({ classes, data, theme }) => {
       }]));
     });
   };
-
 
   const redirectToTrialArm = (TrialArm) => {
     dispatch(initDashboardStatus()).then(() => {
@@ -67,13 +65,11 @@ const ArmDetail = ({ classes, data, theme }) => {
     numberOfFiles: armData.num_files,
   };
 
-
   const breadCrumbJson = [{
     name: 'All trials',
     to: '/trials',
     isALink: true,
   }];
-
 
   const columns = [
     {
@@ -116,7 +112,6 @@ const ArmDetail = ({ classes, data, theme }) => {
     },
   ];
 
-
   const options = {
     selectableRows: 'none',
     responsive: 'stacked',
@@ -144,7 +139,6 @@ const ArmDetail = ({ classes, data, theme }) => {
     ),
   };
 
-
   return (
     <>
       <StatsView data={stat} />
@@ -160,7 +154,7 @@ const ArmDetail = ({ classes, data, theme }) => {
           <div className={classes.headerTitle}>
             <div className={classes.headerMainTitle}>
               <span>
-                 Arm Code:
+                Arm Code:
                 <span>
                   {' '}
                   {armData.arm_id}
@@ -196,7 +190,6 @@ const ArmDetail = ({ classes, data, theme }) => {
             </span>
           </div>
         </div>
-
 
         <div className={classes.detailContainer}>
 
