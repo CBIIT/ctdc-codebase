@@ -287,12 +287,11 @@ const ArmDetail = ({ classes, data, theme }) => {
               className={cn(classes.borderLeft, classes.secondColumn)}
             >
               <Grid container spacing={16} direction="row" className={classes.detailContainerRight}>
-                <Grid item xs={12} className={classes.marginTopN37}>
+                <Grid container justify="center" item xs={12} className={[classes.marginTopN37, classes.widgetWrapper]}>
                   <Widget
-
                     title="DISEASE DISTRIBUTION"
                     upperTitle
-                    bodyClass={classes.fullHeightBody}
+                    bodyClass={classes.widgetBody}
                     className={classes.card}
                     color={theme.palette.dodgeBlue.main}
                     titleClass={classes.widgetTitle}
@@ -313,10 +312,17 @@ const ArmDetail = ({ classes, data, theme }) => {
                 </Grid>
 
                 {/* Number of File(s) including Arm's & Case's Files */}
-                <Grid item xs={12}>
+                <Grid
+                  item
+                  xs={12}
+                  container
+                  alignItems="center"
+                  justify="center"
+                  style={{ borderTop: '#F6F4F4 dashed 2px' }}
+                >
                   <span className={classes.detailContainerHeader}>Number of files </span>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} container justify="center">
                   <div>
                     <span className={classes.fileIcon}>
                       <img src={fileIcon} alt="file icon" />
@@ -376,19 +382,26 @@ const ArmDetail = ({ classes, data, theme }) => {
 
 const styles = (theme) => ({
   firstColumn: {
-    maxWidth: '70%',
+    maxWidth: '75%',
   },
   secondColumn: {
-    maxWidth: '30%',
+    maxWidth: '25%',
   },
   thirdColumn: {
     maxWidth: '0%',
+  },
+  widgetWrapper: {
+    height: 300,
   },
   widgetTitle: {
     color: '#0296c9',
     textTransform: 'uppercase',
     fontFamily: 'Lato !important',
     fontWeight: '500 !important',
+  },
+  widgetBody: {
+    paddingTop: '20px',
+    paddingBottom: '20px',
   },
   borderLeft: {
     borderLeft: '#81A6BA 1px solid',
@@ -650,7 +663,7 @@ const styles = (theme) => ({
   },
   fileIcon: {
     '& img': {
-      width: '35%',
+      width: '60%',
     },
   },
   fileContent: {
